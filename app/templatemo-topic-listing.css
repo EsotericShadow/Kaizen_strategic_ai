@@ -56,7 +56,7 @@ body {
   background-attachment: fixed; /* Fixed background - stays in place while content scrolls */
   background-repeat: no-repeat;
   color: var(--text-on-dark);
-  font-family: var(--body-font-family);
+  font-family: var(--body-font-family); 
   min-height: 100vh;
   position: relative;
   overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -91,7 +91,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--title-font-family);
+  font-family: var(--title-font-family); 
   font-weight: var(--font-weight-semibold);
 }
 
@@ -383,7 +383,7 @@ strong {
 
 .navbar-nav .nav-link {
   color: var(--white-color);
-  font-family: var(--title-font-family);
+  font-family: var(--title-font-family); 
   font-size: var(--menu-font-size);
   font-weight: var(--font-weight-medium);
   padding: 10px 20px;
@@ -434,7 +434,7 @@ strong {
   right: 0;
   bottom: 0;
   background-image: 
-    url('/images/brand/asset_warped_line_badge.png');
+    url('/images/brand/asset_warped_line_badge.webp');
   background-size: 
     1000px auto;
   background-position: 
@@ -449,19 +449,19 @@ strong {
 @media screen and (max-width: 1200px) {
   .hero-section::before {
     background-size: 900px auto;
-  }
+}
 }
 
 @media screen and (max-width: 991px) {
   .hero-section::before {
     background-size: 800px auto;
-  }
+}
 }
 
 @media screen and (max-width: 768px) {
   .hero-section::before {
     background-size: 700px auto;
-  }
+}
 }
 
 @media screen and (max-width: 576px) {
@@ -519,7 +519,7 @@ strong {
 
   .hero-heading-subtitle h2 {
     font-size: 18px;
-  }
+}
 }
 
 /* Position h6 and CTA button lower in hero section */
@@ -764,8 +764,8 @@ strong {
   right: 0;
   bottom: 0;
   background-image: 
-    url('/images/brand/asset_grid_net_cyber.png'),
-    url('/images/brand/asset_star_with_swipe.png');
+    url('/images/brand/asset_grid_net_cyber.webp'),
+    url('/images/brand/asset_star_with_swipe.webp');
   background-size: 300px auto, 150px auto;
   background-position: bottom left, top right;
   background-repeat: no-repeat;

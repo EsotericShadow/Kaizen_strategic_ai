@@ -130,7 +130,7 @@ This project is based on TemplateMo 590 topic listing template. Please review th
 
 Kaizen Strategic AI  
 Terrace, BC, Canada  
-Email: info@kaizenstrategicai.com
+Email: info@kaizenstrategic.ai
 
 ---
 

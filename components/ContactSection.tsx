@@ -32,8 +32,8 @@ export default function ContactSection() {
 
             <p className="d-flex align-items-center mb-1">
               <span className="me-2">Email</span>
-              <a href="mailto:info@kaizenstrategicai.com" className="site-footer-link">
-                info@kaizenstrategicai.com
+              <a href="mailto:info@kaizenstrategic.ai" className="site-footer-link">
+                info@kaizenstrategic.ai
               </a>
             </p>
 
