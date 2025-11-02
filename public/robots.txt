@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kaizenstrategic.ai/sitemap.xml
+
+# Disallow admin/API routes
+Disallow: /api/
+
+# Allow all public pages
+Allow: /
+Allow: /services
+Allow: /articles
+Allow: /events
+Allow: /tools
+Allow: /nci
+Allow: /contact
+

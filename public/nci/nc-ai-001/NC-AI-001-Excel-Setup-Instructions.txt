@@ -1,0 +1,77 @@
+NC-AI-001 Excel Workbook Setup Instructions
+============================================
+
+HOW TO CREATE THE EXCEL VERSION
+-------------------------------
+
+Step 1: Import CSV Data
+------------------------
+1. Open Microsoft Excel or Google Sheets
+2. File → Open → Select "NC-AI-001-Risk-Data.csv"
+3. Choose "Delimited" → Comma delimiter
+4. Import data starting at row 2
+
+Step 2: Add Formulas
+---------------------
+Add these formulas to your columns:
+
+Column H (Risk_Score):
+   Formula: =IF(F2="","",F2*G2)
+   Copy down to all rows
+
+Column I (Risk_Level):
+   Formula: =IF(H2="","",IF(H2>=20,"Extreme",IF(H2>=15,"High",IF(H2>=10,"Medium",IF(H2>=5,"Low","Minimal")))))
+   Copy down to all rows
+
+Step 3: Apply Conditional Formatting
+------------------------------------
+Select column I (Risk_Level), then apply:
+
+Risk Level: Extreme → Background: Red (255, 199, 206)
+Risk Level: High    → Background: Orange (255, 223, 183)
+Risk Level: Medium  → Background: Yellow (255, 255, 199)
+Risk Level: Low     → Background: Green (199, 239, 207)
+Risk Level: Minimal → Background: Light Gray
+
+Step 4: Data Validation
+------------------------
+Column F (Impact_Scale):
+   Data → Data Validation → List → 1,2,3,4,5
+
+Column G (Likelihood_Scale):
+   Data → Data Validation → List → 1,2,3,4,5
+
+Column P (Status):
+   Data → Data Validation → List → Not Started,In Progress,Complete
+
+Step 5: Create Summary Sheet
+---------------------------
+Create a new sheet called "Summary" with:
+
+Cell A1: Total Risks by Level
+B1: Extreme
+C1: High
+D1: Medium
+E1: Low
+F1: Minimal
+
+B2: =COUNTIF(Sheet1!I:I,"Extreme")
+C2: =COUNTIF(Sheet1!I:I,"High")
+D2: =COUNTIF(Sheet1!I:I,"Medium")
+E2: =COUNTIF(Sheet1!I:I,"Low")
+F2: =COUNTIF(Sheet1!I:I,"Minimal")
+
+Cell A4: Total Risks by Category
+B4: =COUNTUNIQUE(Sheet1!B:B)
+
+Step 6: Professional Formatting
+--------------------------------
+1. Format headers with bold and background color
+2. Add borders to all cells
+3. Set column widths appropriately
+4. Freeze first row
+5. Apply alternating row colors
+
+Your Excel workbook is now ready!
+
+

@@ -1,0 +1,501 @@
+/* Northern Cascadia Institute - Institutional Styling */
+/* Professional, authoritative, governing body aesthetic */
+/* Different from Kaizen's brutalist dark design */
+
+:root {
+  --nci-primary: #1e3a5f; /* Deep professional blue */
+  --nci-secondary: #2c5282; /* Medium blue */
+  --nci-accent: #3182ce; /* Lighter blue for links/accents */
+  --nci-bg: #f7fafc; /* Light gray background */
+  --nci-white: #ffffff; /* Clean white */
+  --nci-text: #2d3748; /* Dark gray text */
+  --nci-text-light: #4a5568; /* Lighter gray text */
+  --nci-border: #e2e8f0; /* Light border */
+  --nci-shadow: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* NCI Navigation */
+.nci-navbar {
+  background: var(--nci-white);
+  border-bottom: 2px solid var(--nci-primary);
+  box-shadow: 0 2px 4px var(--nci-shadow);
+  padding: 1rem 0;
+}
+
+.nci-navbar .navbar-brand {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  text-decoration: none;
+}
+
+.nci-brand-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--nci-primary);
+  line-height: 1.2;
+}
+
+.nci-brand-subtext {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--nci-text-light);
+  line-height: 1.2;
+}
+
+.nci-navbar .nav-link {
+  color: var(--nci-text);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.nci-navbar .nav-link:hover {
+  color: var(--nci-accent);
+}
+
+.nci-navbar .nav-link.active {
+  color: var(--nci-primary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--nci-accent);
+}
+
+.nci-navbar .navbar-toggler {
+  border-color: var(--nci-primary);
+}
+
+.nci-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(30, 58, 95, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* NCI Footer */
+.nci-footer {
+  background: var(--nci-primary);
+  color: var(--nci-white);
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+}
+
+.nci-footer-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--nci-white);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--nci-accent);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.nci-footer-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.nci-footer-text-small {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.nci-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nci-footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.nci-footer-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.nci-footer-link:hover {
+  color: var(--nci-white);
+  text-decoration: underline;
+}
+
+.nci-footer-copyright {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+/* NCI Body Background Override */
+body:has(.nci-header) {
+  background-color: var(--nci-bg) !important;
+  background-image: none !important;
+}
+
+/* Comments Section */
+.nci-comments-list {
+  margin-bottom: 2rem;
+}
+
+.nci-comment-item {
+  background: var(--nci-white);
+  border: 1px solid var(--nci-border);
+  border-left: 3px solid var(--nci-accent);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.nci-comment-author {
+  color: var(--nci-primary);
+  font-size: 16px;
+}
+
+.nci-comment-org {
+  color: var(--nci-text-light);
+  font-size: 14px;
+}
+
+.nci-comment-date {
+  color: var(--nci-text-light);
+  font-size: 12px;
+}
+
+.nci-comment-text {
+  color: var(--nci-text);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.nci-comment-form {
+  background: var(--nci-white);
+  border: 1px solid var(--nci-border);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.nci-comment-form h4 {
+  color: var(--nci-primary);
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
+
+.nci-comment-form .form-label {
+  color: var(--nci-text);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.nci-comment-form .form-control {
+  border: 1px solid var(--nci-border);
+  border-radius: 4px;
+  padding: 0.75rem;
+}
+
+.nci-comment-form .form-control:focus {
+  border-color: var(--nci-accent);
+  box-shadow: 0 0 0 0.2rem rgba(49, 130, 206, 0.25);
+}
+
+.nci-comment-form .alert {
+  margin-bottom: 1.5rem;
+}
+
+/* NCI Header */
+.nci-header {
+  background: linear-gradient(135deg, var(--nci-primary) 0%, var(--nci-secondary) 100%);
+  color: var(--nci-white);
+  min-height: 300px;
+  padding: 80px 0;
+}
+
+.nci-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--nci-white);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.nci-subtitle {
+  font-size: 28px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+}
+
+.nci-tagline {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+}
+
+.nci-meta {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 1rem;
+}
+
+/* Breadcrumb */
+.nci-breadcrumb {
+  margin-bottom: 2rem;
+}
+
+.nci-breadcrumb .breadcrumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0;
+}
+
+.nci-breadcrumb .breadcrumb-item a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.nci-breadcrumb .breadcrumb-item.active {
+  color: var(--nci-white);
+}
+
+.nci-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* NCI Section */
+.nci-section {
+  background-color: var(--nci-bg);
+  padding: 60px 0;
+}
+
+.nci-content-box {
+  background: var(--nci-white);
+  border: 1px solid var(--nci-border);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px var(--nci-shadow);
+}
+
+.nci-heading {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--nci-primary);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--nci-accent);
+  padding-bottom: 0.5rem;
+}
+
+.nci-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--nci-text);
+  margin-bottom: 1rem;
+}
+
+.nci-text-small {
+  font-size: 14px;
+  color: var(--nci-text-light);
+}
+
+.nci-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.nci-list li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+  color: var(--nci-text);
+  line-height: 1.6;
+}
+
+.nci-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--nci-accent);
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.nci-list li strong {
+  color: var(--nci-primary);
+}
+
+/* Standard Card */
+.nci-standard-card {
+  background: linear-gradient(135deg, rgba(49, 130, 206, 0.05) 0%, rgba(30, 58, 95, 0.05) 100%);
+  border: 2px solid var(--nci-accent);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.nci-standard-card h4 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--nci-primary);
+  margin-bottom: 0.5rem;
+}
+
+.nci-standard-card p {
+  margin-bottom: 1rem;
+  color: var(--nci-text);
+}
+
+/* Grid */
+.nci-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.nci-grid-item {
+  background: var(--nci-white);
+  border: 1px solid var(--nci-border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.nci-grid-item:hover {
+  box-shadow: 0 4px 12px var(--nci-shadow);
+  transform: translateY(-2px);
+}
+
+.nci-grid-item h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--nci-primary);
+  margin-bottom: 0.75rem;
+}
+
+.nci-grid-item p {
+  font-size: 14px;
+  color: var(--nci-text-light);
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* Download Grid */
+.nci-download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.nci-download-item {
+  background: var(--nci-white);
+  border: 2px solid var(--nci-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.nci-download-item:hover {
+  border-color: var(--nci-accent);
+  box-shadow: 0 4px 12px var(--nci-shadow);
+}
+
+.nci-download-item h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--nci-primary);
+  margin-bottom: 0.75rem;
+}
+
+.nci-download-item p {
+  font-size: 14px;
+  color: var(--nci-text-light);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.nci-btn {
+  display: inline-block;
+  background: var(--nci-primary);
+  color: var(--nci-white);
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.nci-btn:hover {
+  background: var(--nci-secondary);
+  color: var(--nci-white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+}
+
+/* Alert Box */
+.nci-alert {
+  background: linear-gradient(135deg, rgba(49, 130, 206, 0.1) 0%, rgba(30, 58, 95, 0.1) 100%);
+  border-left: 4px solid var(--nci-accent);
+}
+
+/* Contact */
+.nci-contact {
+  background: var(--nci-bg);
+  border-left: 3px solid var(--nci-accent);
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 4px;
+}
+
+.nci-contact a {
+  color: var(--nci-accent);
+  text-decoration: none;
+}
+
+.nci-contact a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+  .nci-title {
+    font-size: 36px;
+  }
+  
+  .nci-subtitle {
+    font-size: 24px;
+  }
+  
+  .nci-heading {
+    font-size: 24px;
+  }
+  
+  .nci-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .nci-download-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nci-title {
+    font-size: 28px;
+  }
+  
+  .nci-subtitle {
+    font-size: 20px;
+  }
+  
+  .nci-content-box {
+    padding: 1.5rem;
+  }
+}
+
