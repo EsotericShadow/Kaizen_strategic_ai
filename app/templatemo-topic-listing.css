@@ -625,14 +625,12 @@ strong {
 
 /* Move tagline and "Evolved from" text up on mobile */
 @media screen and (max-width: 768px) {
-  /* Move main heading down on mobile using relative positioning */
+  /* Move main heading down on mobile using transform (doesn't affect layout flow) */
   .hero-section .hero-heading-wrapper {
-    position: relative;
-    top: 120px; /* Move heading down on mobile */
-    margin-bottom: -120px; /* Prevent pushing content below down */
+    transform: translateY(120px); /* Move heading down visually without affecting other elements */
   }
 
-  /* Keep tagline, button, and evergreen note in their original positions */
+  /* Keep tagline, button, and evergreen note in their original positions - no changes needed */
   .hero-section h6 {
     margin-top: 200px !important; /* Keep original mobile position */
     top: 0 !important;
