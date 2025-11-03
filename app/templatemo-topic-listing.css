@@ -636,12 +636,20 @@ strong {
     top: 0 !important;
   }
 
-  .hero-section .btn.custom-btn {
-    margin-top: 0.5rem !important; /* Move button up on mobile */
+  /* Button container - move up more */
+  .hero-section .text-center.mt-4.pt-2 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 
+  .hero-section .btn.custom-btn {
+    margin-top: 0 !important; /* Move button up more on mobile */
+  }
+
+  /* Keep evergreen note in fixed position - don't let it move with button */
   .hero-section .hero-evergreen-note {
-    margin-top: calc(1rem - 48px) !important; /* Keep original inline style calculation */
+    margin-top: 1rem !important; /* Fixed margin, doesn't depend on button */
+    position: relative;
   }
 }
 
