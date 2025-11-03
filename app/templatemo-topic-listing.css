@@ -631,13 +631,18 @@ strong {
     margin-bottom: 0 !important;
   }
 
+  /* Compensate: move tagline, button, and evergreen note back up by same amount */
   .hero-section h6 {
-    margin-top: 200px !important; /* Move up significantly on mobile */
+    margin-top: 80px !important; /* Was 200px, now 80px (200 - 120) to compensate */
     top: 0 !important;
   }
 
+  .hero-section .btn.custom-btn {
+    margin-top: calc(1.5rem - 120px) !important; /* Move button back up */
+  }
+
   .hero-section .hero-evergreen-note {
-    margin-top: 0.5rem !important; /* Move "Evolved from" text closer to button */
+    margin-top: calc(0.5rem - 120px) !important; /* Move "Evolved from" text back up */
   }
 }
 
