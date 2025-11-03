@@ -1,13 +1,87 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { gsap } from 'gsap';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const navRef = useRef<HTMLElement>(null);
+  const lastScrollY = useRef(0);
+  const isVisible = useRef(true);
+
+  useEffect(() => {
+    if (!navRef.current) return;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollThreshold = 100; // Show header when scrolled past 100px
+
+      // Always show header when scrolling up
+      if (currentScrollY < lastScrollY.current) {
+        // Scrolling up
+        if (!isVisible.current && navRef.current) {
+          isVisible.current = true;
+          gsap.to(navRef.current, {
+            y: 0,
+            opacity: 1,
+            duration: 0.3,
+            ease: 'power2.out',
+          });
+        }
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > scrollThreshold) {
+        // Scrolling down and past threshold
+        if (isVisible.current && navRef.current) {
+          isVisible.current = false;
+          gsap.to(navRef.current, {
+            y: -100,
+            opacity: 0,
+            duration: 0.3,
+            ease: 'power2.out',
+          });
+        }
+      }
+
+      // At top of page, always show
+      if (currentScrollY <= scrollThreshold) {
+        if (!isVisible.current && navRef.current) {
+          isVisible.current = true;
+          gsap.to(navRef.current, {
+            y: 0,
+            opacity: 1,
+            duration: 0.3,
+            ease: 'power2.out',
+          });
+        }
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    // Throttle scroll events for better performance
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    
+    // Initial state
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -29,7 +103,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg" ref={navRef}>
       <div className="container">
         <Link className="navbar-brand" href="/">
           <Image 

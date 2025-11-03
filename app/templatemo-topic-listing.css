@@ -463,9 +463,16 @@ strong {
   NAVIGATION              
 -----------------------------------------*/
 .navbar {
-  background: transparent;
+  background: rgba(30, 30, 30, 0.95); /* Semi-transparent dark background */
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(128, 208, 199, 0.35);
-  z-index: 9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0.5rem 0;
 }
 
 .navbar-brand,
@@ -522,6 +529,7 @@ strong {
   position: relative;
   border-bottom: 1px solid rgba(128, 208, 199, 0.35); /* Thin transparent bluish-green */
   overflow: hidden; /* Contain decorative elements */
+  padding-top: 80px; /* Account for fixed navbar */
 }
 
 /* Hero badge now handled by AnimatedHero component */
