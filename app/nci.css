@@ -20,6 +20,12 @@
   border-bottom: 2px solid var(--nci-primary);
   box-shadow: 0 2px 4px var(--nci-shadow);
   padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .nci-navbar .navbar-brand {
@@ -204,7 +210,8 @@
   background: linear-gradient(135deg, var(--nci-primary) 0%, var(--nci-secondary) 100%);
   color: var(--nci-white);
   min-height: 300px;
-  padding: 80px 0;
+  padding: 120px 0 80px; /* Added top padding to account for fixed navbar */
+  margin-top: 0;
 }
 
 .nci-title {
