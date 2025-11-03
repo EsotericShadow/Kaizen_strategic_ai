@@ -127,11 +127,8 @@
   margin-bottom: 0;
 }
 
-/* NCI Body Background Override */
-body:has(.nci-header) {
-  background-color: var(--nci-bg) !important;
-  background-image: none !important;
-}
+/* NCI Body Background - Allow main site background to show */
+/* Background overlay from main site should appear on NCI pages too */
 
 /* Comments Section */
 .nci-comments-list {

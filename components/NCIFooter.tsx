@@ -35,8 +35,8 @@ export default function NCIFooter() {
 
           <div className="col-lg-3 col-md-3 col-6">
             <h6 className="nci-footer-title">Contact</h6>
-            <p className="nci-footer-text">
-              <a href="mailto:governance@kaizenstrategic.ai" className="nci-footer-link">
+            <p className="nci-footer-text nci-footer-email">
+              <a href="mailto:governance@kaizenstrategic.ai" className="nci-footer-link nci-email-link">
                 governance@kaizenstrategic.ai
               </a>
             </p>
