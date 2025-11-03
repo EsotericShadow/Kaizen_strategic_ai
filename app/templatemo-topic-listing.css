@@ -625,6 +625,12 @@ strong {
 
 /* Move tagline and "Evolved from" text up on mobile */
 @media screen and (max-width: 768px) {
+  /* Move main heading down on mobile */
+  .hero-section .hero-heading-wrapper {
+    margin-top: 120px !important; /* Move heading down on mobile */
+    margin-bottom: 0 !important;
+  }
+
   .hero-section h6 {
     margin-top: 200px !important; /* Move up significantly on mobile */
     top: 0 !important;
