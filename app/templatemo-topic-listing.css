@@ -51,13 +51,27 @@ Based on TemplateMo 590 topic listing
 /* Ensure html and body extend to cover all content */
 html {
   background-color: var(--primary-color);
+  position: relative;
+  min-height: 100%;
+  height: auto;
+}
+
+/* Background overlay with 50% opacity */
+html::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: url('/images/brand/background_abstract_dark_overlay.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Fixed background - stays in place while content scrolls */
   background-repeat: no-repeat;
-  min-height: 100%;
-  height: auto;
+  opacity: 0.5; /* 50% opaque */
+  z-index: -1;
+  pointer-events: none;
 }
 
 body {
@@ -81,17 +95,10 @@ body {
   }
   
   body {
-    /* Use WebP - modern browsers support it, PNG fallback via BackgroundLoader */
-    background-image: url('/images/brand/background_abstract_dark_overlay-mobile.webp') !important;
-    background-attachment: scroll !important; /* Better performance on mobile */
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    /* Ensure image loads with fallback color */
+    /* Background image handled by html::before and body::after pseudo-elements */
     background-color: var(--primary-color) !important;
     min-height: 100vh;
     min-height: 100dvh; /* Dynamic viewport height - accounts for mobile browser UI */
-    /* Force image to load by setting display */
     display: block !important;
   }
   
@@ -114,31 +121,32 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-color: var(--primary-color);
+    opacity: 0.5; /* 50% opaque */
     z-index: -2; /* Behind everything but above body background */
     pointer-events: none;
     display: block;
+  }
+  
+  /* Update html::before for mobile with 50% opacity */
+  html::before {
+    background-image: url('/images/brand/background_abstract_dark_overlay-mobile.webp');
+    background-attachment: scroll !important; /* Better performance on mobile */
+    opacity: 0.5; /* 50% opaque */
   }
 }
 
 /* Additional mobile optimization for very small screens */
 @media screen and (max-width: 480px) {
-  body {
+  /* Background handled by html::before and body::after pseudo-elements */
+  html::before {
     background-size: cover !important;
     background-position: center center !important;
-    /* Force reload on very small screens */
-    background-image: url('/images/brand/background_abstract_dark_overlay-mobile.webp') !important;
-    background-attachment: scroll !important;
   }
 }
 
 /* Ensure background loads on mobile devices - apply to html as fallback */
 @media screen and (max-width: 768px) {
   html {
-    background-image: url('/images/brand/background_abstract_dark_overlay-mobile.webp');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: scroll;
-    background-repeat: no-repeat;
     background-color: var(--primary-color);
     min-height: 100vh;
     min-height: 100dvh; /* Dynamic viewport height - accounts for mobile browser UI */
