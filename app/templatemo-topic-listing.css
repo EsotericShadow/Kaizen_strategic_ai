@@ -625,24 +625,25 @@ strong {
 
 /* Move tagline and "Evolved from" text up on mobile */
 @media screen and (max-width: 768px) {
-  /* Move main heading down on mobile */
+  /* Move main heading down on mobile using relative positioning */
   .hero-section .hero-heading-wrapper {
-    margin-top: 120px !important; /* Move heading down on mobile */
-    margin-bottom: 0 !important;
+    position: relative;
+    top: 120px; /* Move heading down on mobile */
+    margin-bottom: -120px; /* Prevent pushing content below down */
   }
 
-  /* Compensate: move tagline, button, and evergreen note back up by same amount */
+  /* Keep tagline, button, and evergreen note in their original positions */
   .hero-section h6 {
-    margin-top: 80px !important; /* Was 200px, now 80px (200 - 120) to compensate */
+    margin-top: 200px !important; /* Keep original mobile position */
     top: 0 !important;
   }
 
   .hero-section .btn.custom-btn {
-    margin-top: calc(1.5rem - 120px) !important; /* Move button back up */
+    margin-top: 1.5rem !important; /* Keep original spacing */
   }
 
   .hero-section .hero-evergreen-note {
-    margin-top: calc(0.5rem - 120px) !important; /* Move "Evolved from" text back up */
+    margin-top: calc(1rem - 48px) !important; /* Keep original inline style calculation */
   }
 }
 
