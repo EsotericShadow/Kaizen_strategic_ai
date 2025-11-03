@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import BackgroundLoader from '@/components/BackgroundLoader';
 
 export default function MainLayout({
   children,
@@ -8,6 +9,7 @@ export default function MainLayout({
 }) {
   return (
     <>
+      <BackgroundLoader />
       <Navigation />
       <main>{children}</main>
       <Footer />
