@@ -48,22 +48,38 @@ Based on TemplateMo 590 topic listing
   --font-weight-bold:             700;
 }
 
-body {
-  background-color: var(--primary-color); /* Deep Ink - black background */
+/* Ensure html and body extend to cover all content */
+html {
+  background-color: var(--primary-color);
   background-image: url('/images/brand/background_abstract_dark_overlay.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Fixed background - stays in place while content scrolls */
   background-repeat: no-repeat;
+  min-height: 100%;
+  height: auto;
+}
+
+body {
+  background-color: transparent; /* Transparent - html handles background */
+  background-image: none; /* No background on body - html handles it */
   color: var(--text-on-dark);
   font-family: var(--body-font-family); 
   min-height: 100vh;
+  height: auto; /* Extend with content */
   position: relative;
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Mobile optimization: use smaller image and disable fixed background */
 @media screen and (max-width: 768px) {
+  html {
+    /* Ensure html background extends beyond viewport for mobile browser UI */
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height - accounts for mobile browser UI */
+    height: 100%;
+  }
+  
   body {
     /* Use WebP - modern browsers support it, PNG fallback via BackgroundLoader */
     background-image: url('/images/brand/background_abstract_dark_overlay-mobile.webp') !important;
@@ -73,7 +89,8 @@ body {
     background-repeat: no-repeat !important;
     /* Ensure image loads with fallback color */
     background-color: var(--primary-color) !important;
-    min-height: 100vh !important;
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height - accounts for mobile browser UI */
     /* Force image to load by setting display */
     display: block !important;
   }
@@ -81,11 +98,17 @@ body {
   /* Use wrapper pseudo-element as additional fallback to ensure background shows on mobile */
   body::after {
     content: '';
-    position: fixed;
+    position: fixed; /* Fixed to viewport for mobile */
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0; /* Extend to bottom including browser UI */
     width: 100%;
-    height: 100%;
+    /* Use viewport units that account for browser chrome on iOS */
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height - accounts for mobile browser UI */
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for iOS */
     background-image: url('/images/brand/background_abstract_dark_overlay-mobile.webp');
     background-size: cover;
     background-position: center center;
@@ -118,6 +141,8 @@ body {
     background-repeat: no-repeat;
     background-color: var(--primary-color);
     min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height - accounts for mobile browser UI */
+    height: 100%;
   }
   
   /* Ensure sections don't block the background on mobile */
@@ -137,9 +162,7 @@ body {
   }
 }
 
-html {
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-}
+/* Removed duplicate html rule - now at top of file */
 
 /* Ensure all sections are transparent/see-through to show the fixed background */
 main {
@@ -989,9 +1012,11 @@ strong {
   FOOTER              
 -----------------------------------------*/
 .site-footer {
-  background-color: var(--dark-color);
+  background-color: transparent; /* Transparent to show fixed background */
   color: var(--white-color);
   overflow-x: hidden; /* Prevent horizontal scrolling */
+  position: relative;
+  z-index: 1;
 }
 
 .site-footer .container {
