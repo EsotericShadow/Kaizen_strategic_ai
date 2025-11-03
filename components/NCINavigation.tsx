@@ -38,8 +38,8 @@ export default function NCINavigation() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${pathname?.includes('/nc-ai-001') ? 'active' : ''}`} href="/nci/nc-ai-001">
-                NC-AI-001
+              <Link className={`nav-link ${pathname?.includes('/standards') || pathname?.includes('/nc-ai-001') ? 'active' : ''}`} href="/nci/standards">
+                Standards
               </Link>
             </li>
             <li className="nav-item">

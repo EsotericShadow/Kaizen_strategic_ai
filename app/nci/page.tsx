@@ -104,14 +104,22 @@ export default function NCIPage() {
               </div>
 
               <div className="nci-content-box">
-                <h3 className="nci-heading">Current Standards</h3>
+                <h3 className="nci-heading">NC-AI Standards Series</h3>
+                <p className="nci-text">
+                  The Northern Cascadia Institute develops and publishes practical AI governance standards and risk management templates aligned with ISO 42001:2023. Our standards are designed for smaller organizations, remote communities, and regional businesses.
+                </p>
                 <div className="nci-standard-card">
                   <h4>NC-AI-001: AI Risk Register Template</h4>
                   <p>Version 1.0 • Published Q4 2025 • Status: Draft for Public Comment</p>
                   <p>A comprehensive AI risk management template with 28 pre-populated risks across 8 categories, aligned with ISO 42001:2023.</p>
-                  <Link href="/nci/nc-ai-001" className="nci-btn">
-                    View Standard
-                  </Link>
+                  <div className="mt-3">
+                    <Link href="/nci/standards" className="nci-btn me-3">
+                      View All Standards
+                    </Link>
+                    <Link href="/nci/nc-ai-001" className="nci-btn" style={{ background: 'transparent', border: '2px solid var(--nci-primary)', color: 'var(--nci-primary)' }}>
+                      View NC-AI-001
+                    </Link>
+                  </div>
                 </div>
               </div>
 

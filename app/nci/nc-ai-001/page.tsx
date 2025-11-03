@@ -80,8 +80,8 @@ export default function NCAI001Page() {
                   </li>
                 </ol>
               </nav>
-              <h1 className="nci-title">NC-AI-001</h1>
-              <h2 className="nci-subtitle">AI Risk Register Template</h2>
+              <h1 className="nci-title">AI Governance Standards</h1>
+              <h2 className="nci-subtitle">NC-AI-001: AI Risk Register Template</h2>
               <p className="nci-meta">Version 1.0 • Published Q4 2025 • Status: Draft for Public Comment</p>
             </div>
           </div>
