@@ -636,20 +636,23 @@ strong {
     top: 0 !important;
   }
 
-  /* Button container - move up more */
+  /* Button container - move up more, but maintain spacing */
   .hero-section .text-center.mt-4.pt-2 {
     margin-top: 0 !important;
     padding-top: 0 !important;
+    margin-bottom: 1.5rem !important; /* Ensure spacing below button */
   }
 
   .hero-section .btn.custom-btn {
     margin-top: 0 !important; /* Move button up more on mobile */
+    margin-bottom: 0 !important;
   }
 
-  /* Keep evergreen note in fixed position - don't let it move with button */
+  /* Keep evergreen note in fixed position with proper spacing */
   .hero-section .hero-evergreen-note {
-    margin-top: 1rem !important; /* Fixed margin, doesn't depend on button */
+    margin-top: 1.5rem !important; /* Fixed margin - ensure spacing from button (mt-3 = 1rem, but we want more) */
     position: relative;
+    top: 0 !important;
   }
 }
 

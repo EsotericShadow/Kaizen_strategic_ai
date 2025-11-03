@@ -170,7 +170,7 @@ export default function AnimatedHero() {
               </Link>
             </div>
 
-            <div className="text-center mt-3 hero-evergreen-note" style={{ marginTop: 'calc(1rem - 48px)' }}>
+            <div className="text-center mt-3 hero-evergreen-note">
               <p className="text-white" style={{ fontSize: '14px', opacity: 0.7, fontStyle: 'italic' }}>
                 Evolved from Evergreen Web Solutions — pivoting from custom web development to AI-driven digital strategy
               </p>
