@@ -1068,6 +1068,64 @@ strong {
   }
 }
 
+/*---------------------------------------
+  NCI FOOTER              
+-----------------------------------------*/
+.nci-footer {
+  background-color: transparent; /* Transparent to show fixed background */
+  color: var(--white-color);
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  position: relative;
+  z-index: 1;
+  padding: 60px 0 40px;
+  border-top: 1px solid rgba(128, 208, 199, 0.35);
+}
+
+.nci-footer .container {
+  overflow-x: hidden; /* Prevent container overflow */
+}
+
+.nci-footer p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.nci-footer a {
+  word-break: break-word; /* Allow breaking email addresses at appropriate points */
+  overflow-wrap: anywhere; /* Allow breaking only at appropriate points */
+  hyphens: auto;
+}
+
+.nci-footer-text,
+.nci-footer-text-small {
+  margin-bottom: 0.5rem;
+}
+
+.nci-footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nci-footer-link:hover {
+  color: var(--secondary-color);
+}
+
+/* NCI Footer email overflow fix for mobile */
+@media (max-width: 576px) {
+  .nci-footer a {
+    display: inline-block;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .nci-footer .col-lg-3 {
+    margin-bottom: 1.5rem;
+  }
+}
+
 
 /*---------------------------------------
   TOPICS DETAIL              
