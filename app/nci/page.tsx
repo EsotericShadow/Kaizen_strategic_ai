@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function NCIPage() {
   return (
@@ -7,6 +8,24 @@ export default function NCIPage() {
         <div className="container">
           <div className="row justify-content-center align-items-center">
             <div className="col-lg-10 col-12 text-center">
+              <div style={{ marginBottom: '2rem' }}>
+                <div style={{
+                  width: '120px',
+                  height: '120px',
+                  background: 'linear-gradient(135deg, var(--nci-primary) 0%, var(--nci-secondary) 100%)',
+                  borderRadius: '16px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--nci-white)',
+                  fontSize: '48px',
+                  fontWeight: 700,
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+                  marginBottom: '1.5rem',
+                }}>
+                  NCI
+                </div>
+              </div>
               <h1 className="nci-title">Northern Cascadia Institute</h1>
               <h2 className="nci-subtitle">of AI Governance</h2>
               <p className="nci-tagline">Regional AI governance standards for Northern BC and beyond</p>

@@ -89,11 +89,28 @@ export default function AboutPage() {
 
               <div className="nci-content-box nci-alert">
                 <h3 className="nci-heading">Board of Directors</h3>
+                <div style={{
+                  background: 'var(--nci-bg)',
+                  border: '2px dashed var(--nci-border)',
+                  borderRadius: '8px',
+                  padding: '3rem 2rem',
+                  textAlign: 'center',
+                  marginBottom: '2rem',
+                }}>
+                  <div style={{
+                    fontSize: '48px',
+                    marginBottom: '1rem',
+                    opacity: 0.5,
+                  }}>👥</div>
+                  <p className="nci-text" style={{ fontStyle: 'italic', marginBottom: '1rem' }}>
+                    Board member profiles will appear here once the board is fully formed
+                  </p>
+                </div>
                 <p className="nci-text">
                   The Northern Cascadia Institute is currently forming its initial board of directors. We are seeking <strong>2 additional board members</strong> to join our founding board.
                 </p>
                 <p className="nci-text">
-                  <strong>This page will display board member profiles once the board is fully formed.</strong> Board members will include:
+                  Board members will include:
                 </p>
                 <ul className="nci-list">
                   <li>Chair/President</li>
