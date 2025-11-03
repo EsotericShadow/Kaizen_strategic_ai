@@ -43,6 +43,21 @@ export default function NCINavigation() {
               </Link>
             </li>
             <li className="nav-item">
+              <Link className={`nav-link ${pathname?.includes('/about') ? 'active' : ''}`} href="/nci/about">
+                About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${pathname?.includes('/resources') ? 'active' : ''}`} href="/nci/resources">
+                Resources
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${pathname?.includes('/faq') ? 'active' : ''}`} href="/nci/faq">
+                FAQ
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link className={`nav-link ${pathname?.includes('/summit') ? 'active' : ''}`} href="/nci/summit">
                 Annual Summit
               </Link>
