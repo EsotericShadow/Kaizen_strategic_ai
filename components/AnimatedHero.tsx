@@ -23,17 +23,10 @@ export default function AnimatedHero() {
     if (!heroRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Animate decorative badge - subtle floating/rotation
+      // Animate decorative badge - subtle floating only (no rotation)
       if (badgeRef.current) {
         gsap.to(badgeRef.current, {
-          rotation: 360,
-          duration: 20,
-          repeat: -1,
-          ease: 'none',
-        });
-
-        gsap.to(badgeRef.current, {
-          y: '+=30',
+          y: '+=20',
           duration: 4,
           repeat: -1,
           yoyo: true,

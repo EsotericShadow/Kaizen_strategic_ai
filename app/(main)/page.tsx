@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import AnimatedHero from '@/components/AnimatedHero';
-import AnimatedSection from '@/components/AnimatedSection';
 import FeaturedSection from '@/components/FeaturedSection';
 import ServicesSection from '@/components/ServicesSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
@@ -45,21 +44,11 @@ export default function Home() {
   return (
     <>
       <AnimatedHero />
-      <AnimatedSection className="featured-section" direction="up" delay={0.2}>
-        <FeaturedSection />
-      </AnimatedSection>
-      <AnimatedSection className="services-section" direction="up" delay={0.1}>
-        <ServicesSection />
-      </AnimatedSection>
-      <AnimatedSection className="how-it-works-section" direction="up" delay={0.2}>
-        <HowItWorksSection />
-      </AnimatedSection>
-      <AnimatedSection className="faq-section" direction="up" delay={0.1}>
-        <FAQSection />
-      </AnimatedSection>
-      <AnimatedSection className="contact-section" direction="up" delay={0.2}>
-        <ContactSection />
-      </AnimatedSection>
+      <FeaturedSection />
+      <ServicesSection />
+      <HowItWorksSection />
+      <FAQSection />
+      <ContactSection />
     </>
   );
 }

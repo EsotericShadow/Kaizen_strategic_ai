@@ -1,8 +1,73 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register ScrollTrigger plugin
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 export default function FAQSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const heading = sectionRef.current?.querySelector('h2');
+      const accordion = sectionRef.current?.querySelector('.accordion');
+
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          {
+            opacity: 0,
+            y: 40,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 75%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      }
+
+      if (accordion) {
+        gsap.fromTo(
+          accordion,
+          {
+            opacity: 0,
+            y: 40,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            delay: 0.2,
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 75%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="faq-section section-padding" id="faqs">
+    <section className="faq-section section-padding" id="faqs" ref={sectionRef}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-12">
