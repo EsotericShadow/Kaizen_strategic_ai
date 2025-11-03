@@ -175,8 +175,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     ].join(', '),
     alternates: {
       canonical: `https://kaizenstrategic.ai/services/${params.slug}`,
-    },
-  };
+  },
+};
 }
 
 interface PageProps {

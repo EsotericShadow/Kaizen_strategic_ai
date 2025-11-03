@@ -1,0 +1,2394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaizen Strategic AI - Business Plan</title>
+    <style>
+        :root {
+            --deep-ink: #0A0A0A;
+            --analog-white: #E8E8E8;
+            --glitch-cyan: #00FFFF;
+            --vhs-purple: #8A2BE2;
+            --warp-green: #00FF41;
+            --artifact-orange: #FF6B35;
+            --steel-grey: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--deep-ink);
+            color: var(--analog-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* VHS Scan Lines */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 50%, rgba(0, 255, 255, 0.03) 50%),
+                linear-gradient(0deg, transparent 50%, rgba(138, 43, 226, 0.02) 50%);
+            background-size: 2px 2px;
+            pointer-events: none;
+            z-index: 1;
+            animation: scanlines 0.1s linear infinite;
+        }
+
+        @keyframes scanlines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(2px); }
+        }
+
+        /* VHS Overexposure & Camera Artifacts */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 65, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.06) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 48%, rgba(0, 255, 255, 0.02) 49%, rgba(0, 255, 255, 0.02) 51%, transparent 52%);
+            pointer-events: none;
+            z-index: 1;
+            animation: artifacts 3s ease-in-out infinite;
+        }
+
+        @keyframes artifacts {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--deep-ink) 0%, #1A1A1A 100%);
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--glitch-cyan);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent),
+                linear-gradient(45deg, transparent 48%, rgba(0, 255, 65, 0.05) 49%, rgba(0, 255, 65, 0.05) 51%, transparent 52%);
+            animation: warp-scan 4s infinite;
+        }
+
+        @keyframes warp-scan {
+            0% { left: -100%; transform: skewX(-5deg); }
+            50% { transform: skewX(5deg); }
+            100% { left: 100%; transform: skewX(-5deg); }
+        }
+
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--glitch-cyan);
+            text-shadow: 
+                0 0 10px rgba(0, 255, 255, 0.8),
+                0 0 20px rgba(0, 255, 255, 0.4),
+                0 0 30px rgba(0, 255, 255, 0.2);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 48%, rgba(0, 255, 65, 0.1) 49%, rgba(0, 255, 65, 0.1) 51%, transparent 52%);
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-2px); }
+            40% { transform: translateX(2px); }
+            60% { transform: translateX(-1px); }
+            80% { transform: translateX(1px); }
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--analog-white);
+            margin-bottom: 1rem;
+            font-weight: 300;
+            text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+        }
+
+        .mission {
+            font-size: 1rem;
+            color: var(--analog-white);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-item a {
+            color: var(--analog-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .nav-item a:hover {
+            color: var(--glitch-cyan);
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateY(-2px);
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Main Content */
+        .main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            background: rgba(10, 10, 10, 0.8);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--glitch-cyan), var(--warp-green));
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--glitch-cyan);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+        }
+
+        .section-title::before {
+            content: '▶';
+            color: var(--warp-green);
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px rgba(0, 255, 65, 0.6);
+        }
+
+        .subsection {
+            margin-bottom: 2rem;
+        }
+
+        .subsection-title {
+            font-size: 1.4rem;
+            color: var(--analog-white);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            border-left: 3px solid var(--vhs-purple);
+            padding-left: 1rem;
+            text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+        }
+
+        .subsection-title::before {
+            content: '◢';
+            color: var(--artifact-orange);
+            margin-right: 0.5rem;
+            text-shadow: 0 0 5px rgba(255, 107, 53, 0.5);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: rgba(15, 15, 15, 0.9);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 48%, rgba(0, 255, 65, 0.02) 49%, rgba(0, 255, 65, 0.02) 51%, transparent 52%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--glitch-cyan);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-title {
+            color: var(--glitch-cyan);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+        }
+
+        .card-content {
+            color: var(--analog-white);
+            line-height: 1.6;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--analog-white);
+            position: relative;
+        }
+
+        li::marker {
+            color: var(--warp-green);
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .code-block {
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid var(--glitch-cyan);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .code-block p {
+            margin: 0.5rem 0;
+        }
+
+        .code-block ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .code-block li {
+            margin: 0.25rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(10, 10, 10, 0.8);
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+        }
+
+        th {
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--glitch-cyan);
+            font-weight: 600;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+        }
+
+        td {
+            color: var(--analog-white);
+        }
+
+        tr:hover {
+            background: rgba(0, 255, 65, 0.05);
+        }
+
+        /* Metrics Dashboard */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 65, 0.1));
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 48%, rgba(138, 43, 226, 0.05) 49%, rgba(138, 43, 226, 0.05) 51%, transparent 52%);
+            animation: metric-pulse 3s infinite;
+        }
+
+        @keyframes metric-pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--glitch-cyan);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .metric-label {
+            color: var(--analog-white);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-list {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">KAIZEN STRATEGIC AI</h1>
+                <p class="tagline">Work less, Achieve more • Continuous Improvement</p>
+                <p class="mission">Moving the North forward through Digital Strategy. We help organizations evolve through intelligent systems that amplify human ability rather than replace it.</p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#overview">Company Overview</a></li>
+                <li class="nav-item"><a href="#strategy">Business Strategy</a></li>
+                <li class="nav-item"><a href="#services">Service Delivery</a></li>
+                <li class="nav-item"><a href="#discovery">Discovery Processes</a></li>
+                <li class="nav-item"><a href="#technology">Technology & Prompts</a></li>
+                <li class="nav-item"><a href="#market">Market Position</a></li>
+                <li class="nav-item"><a href="#operations">Operations</a></li>
+                <li class="nav-item"><a href="#financial">Financial Strategy</a></li>
+                <li class="nav-item"><a href="#marketing">Marketing Strategy</a></li>
+                <li class="nav-item"><a href="#growth">Growth Strategy</a></li>
+                <li class="nav-item"><a href="#goals">Goals & Metrics</a></li>
+                <li class="nav-item"><a href="#legal">Legal & Compliance</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Company Overview -->
+            <section id="overview" class="section">
+                <h2 class="section-title">Company Overview</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Who We Are</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Core Information</h3>
+                            <div class="card-content">
+                                <p><strong>Name:</strong> Kaizen Strategic AI</p>
+                                <p><strong>Founder:</strong> Gabriel Lacroix</p>
+                                <p><strong>Location:</strong> Terrace, BC (Northern BC)</p>
+                                <p><strong>Founded:</strong> 2025</p>
+                                <p><strong>Status:</strong> Solo founder operation</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Our Mission</h3>
+                            <div class="card-content">
+                                <p><strong>"Moving the North forward through Digital Strategy"</strong></p>
+                                <p>We help organizations evolve through intelligent systems that amplify human ability rather than replace it.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Value Proposition</h3>
+                            <div class="card-content">
+                                <p><strong>"We make technology make sense"</strong></p>
+                                <p>Kaizen Strategic AI makes technology practical, ethical, and accessible so every business, from local to global, can work smarter.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Core Philosophy</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li><strong>Human-First:</strong> Technology amplifies human potential</li>
+                                    <li><strong>Continuous Improvement:</strong> Kaizen philosophy</li>
+                                    <li><strong>Practical Solutions:</strong> Real tools that work</li>
+                                    <li><strong>Local Focus:</strong> Built for Northern BC</li>
+                                    <li><strong>Trust-Based:</strong> Long-term partnerships</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Pioneer Advantage</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Market Position</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li><strong>First-Mover Advantage:</strong> We're not competing, we're creating the category</li>
+                                    <li><strong>Former Competitors as Clients:</strong> Local web agencies, IT providers, and marketing firms now need our AI expertise</li>
+                                    <li><strong>Upstream Positioning:</strong> Moved from service provider to strategic partner</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">AI Technician Trade</h3>
+                            <div class="card-content">
+                                <p><strong>Profession Definition:</strong> Pioneering hands-on implementers who wire intelligence through businesses</p>
+                                <p><strong>Similar to:</strong> How electricians wire power through buildings</p>
+                                <p><strong>Regional Authority:</strong> Building Northern BC as the AI hub</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Target Market</h3>
+                            <div class="card-content">
+                                <p><strong>Primary:</strong> Growing businesses (5-50 employees) in Northern BC's northwest region</p>
+                                <p><strong>Secondary:</strong> Any business with computer/admin processes that take too long</p>
+                                <p><strong>Geographic Focus:</strong> Terrace, Kitimat, Prince Rupert, Smithers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Business Strategy -->
+            <section id="strategy" class="section">
+                <h2 class="section-title">Business Strategy</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Service Positioning</h3>
+                    <div class="card">
+                        <h3 class="card-title">"Digital Strategy" - Comprehensive Approach</h3>
+                        <div class="card-content">
+                            <p>Not just AI consulting, but comprehensive digital transformation that includes:</p>
+                            <ul>
+                                <li>AI integration and automation</li>
+                                <li>Traditional programming solutions</li>
+                                <li>Process refinement and optimization</li>
+                                <li>System integration and workflow design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Client Segmentation & Profiles</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">🐇 Rabbits (Small Businesses)</h3>
+                            <div class="card-content">
+                                <p><strong>Profile:</strong> 1-5 employees, $100K-$500K annual revenue</p>
+                                <p><strong>Investment Range:</strong> $2K-$5K per project</p>
+                                <p><strong>Timeline:</strong> 2-4 weeks</p>
+                                
+                                <h4>Pain Points:</h4>
+                                <ul>
+                                    <li>Limited time for administrative tasks</li>
+                                    <li>Manual processes eating up productivity</li>
+                                    <li>Outdated systems and workflows</li>
+                                    <li>Need professional online presence</li>
+                                    <li>Budget constraints for major changes</li>
+                                </ul>
+
+                                <h4>Goals & Objectives:</h4>
+                                <ul>
+                                    <li>Quick wins and immediate impact</li>
+                                    <li>Time savings and efficiency gains</li>
+                                    <li>Professional digital presence</li>
+                                    <li>Cost-effective solutions</li>
+                                    <li>Simple, manageable systems</li>
+                                </ul>
+
+                                <h4>Value Proposition:</h4>
+                                <p>Fast, affordable digital transformation that delivers immediate time savings and professional presence without overwhelming complexity.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">🦌 Deer (Primary Focus)</h3>
+                            <div class="card-content">
+                                <p><strong>Profile:</strong> 5-50 employees, $500K-$5M annual revenue</p>
+                                <p><strong>Investment Range:</strong> $6K-$20K per project</p>
+                                <p><strong>Timeline:</strong> 4-8 weeks</p>
+                                
+                                <h4>Pain Points:</h4>
+                                <ul>
+                                    <li>Scaling operations efficiently</li>
+                                    <li>Staff productivity bottlenecks</li>
+                                    <li>Data management and analysis challenges</li>
+                                    <li>Competitive pressure to modernize</li>
+                                    <li>Need for strategic digital direction</li>
+                                </ul>
+
+                                <h4>Goals & Objectives:</h4>
+                                <ul>
+                                    <li>Strategic implementation with measurable outcomes</li>
+                                    <li>Operational efficiency improvements</li>
+                                    <li>Staff productivity enhancement</li>
+                                    <li>Competitive advantage through technology</li>
+                                    <li>Scalable systems for growth</li>
+                                </ul>
+
+                                <h4>Value Proposition:</h4>
+                                <p>Comprehensive digital strategy that transforms operations, boosts productivity, and provides strategic clarity for sustainable growth.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">🐘 Elephants (Large Organizations)</h3>
+                            <div class="card-content">
+                                <p><strong>Profile:</strong> 50+ employees, $10M+ revenue or publicly funded</p>
+                                <p><strong>Investment Range:</strong> $25K-$150K+ per project</p>
+                                <p><strong>Timeline:</strong> 3-9 months</p>
+                                
+                                <h4>Pain Points:</h4>
+                                <ul>
+                                    <li>Complex legacy systems integration</li>
+                                    <li>Regulatory compliance requirements</li>
+                                    <li>Data sovereignty and security concerns</li>
+                                    <li>Change management across large teams</li>
+                                    <li>Need for regional leadership positioning</li>
+                                </ul>
+
+                                <h4>Goals & Objectives:</h4>
+                                <ul>
+                                    <li>Transformational change and competitive advantage</li>
+                                    <li>Regional leadership in digital innovation</li>
+                                    <li>Data sovereignty and security compliance</li>
+                                    <li>Operational excellence at scale</li>
+                                    <li>Strategic partnership and long-term growth</li>
+                                </ul>
+
+                                <h4>Value Proposition:</h4>
+                                <p>Enterprise-grade digital transformation that establishes regional leadership, ensures compliance, and delivers operational excellence through strategic AI implementation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Learning Contracts Phase</h3>
+                    <div class="card">
+                        <h3 class="card-title">Pre-Launch Strategy</h3>
+                        <div class="card-content">
+                            <h4>Purpose & Strategy:</h4>
+                            <ul>
+                                <li><strong>Build Case Studies:</strong> Document every project for future marketing</li>
+                                <li><strong>Extract Patterns:</strong> Identify repeatable methodologies</li>
+                                <li><strong>Fund Marketing:</strong> Use contract revenue for launch campaigns</li>
+                                <li><strong>Establish Methodology:</strong> Create the "Kaizen Method" framework</li>
+                            </ul>
+
+                            <h4>Contract Structure:</h4>
+                            <ul>
+                                <li><strong>Duration:</strong> 1-2 weeks per engagement</li>
+                                <li><strong>Investment:</strong> $1K-$2K per contract</li>
+                                <li><strong>Scope:</strong> System mapping + AI opportunity report</li>
+                                <li><strong>Deliverable:</strong> Mini-integration or demo implementation</li>
+                            </ul>
+
+                            <h4>Documentation Requirements:</h4>
+                            <ul>
+                                <li>Comprehensive process analysis</li>
+                                <li>AI opportunity identification (3-5 ideas)</li>
+                                <li>Measurable outcomes and testimonials</li>
+                                <li>Pattern extraction for methodology</li>
+                                <li>Case study for marketing use</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Service Delivery -->
+            <section id="services" class="section">
+                <h2 class="section-title">Service Delivery</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Service Offerings</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Digital Strategy Consulting</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li>Current state analysis and process mapping</li>
+                                    <li>AI readiness assessment and opportunity identification</li>
+                                    <li>Strategic planning and implementation roadmap</li>
+                                    <li>ROI analysis and success metric definition</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">AI Integration & Development</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li>AI model development and training</li>
+                                    <li>System integration and workflow automation</li>
+                                    <li>Data architecture and security implementation</li>
+                                    <li>User interface design and experience optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Process Optimization</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li>Workflow analysis and bottleneck identification</li>
+                                    <li>System cleanup and optimization</li>
+                                    <li>Process standardization and documentation</li>
+                                    <li>Staff training and change management</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Web Development & Design</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li>Clean, minimal design with futuristic brutalist aesthetic</li>
+                                    <li>Mobile-first responsive design</li>
+                                    <li>Integration with business operations</li>
+                                    <li>SEO optimization and local search</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Project Workflows</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Rabbit Projects (2-4 weeks, $2K-$5K)</h3>
+                            <div class="card-content">
+                                <p><strong>Week 1:</strong> Discovery and planning</p>
+                                <p><strong>Week 2:</strong> Development and implementation</p>
+                                <p><strong>Week 3:</strong> Testing and refinement</p>
+                                <p><strong>Week 4:</strong> Launch and support</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Deer Projects (4-8 weeks, $6K-$20K)</h3>
+                            <div class="card-content">
+                                <p><strong>Weeks 1-2:</strong> Strategic discovery</p>
+                                <p><strong>Weeks 3-5:</strong> Implementation and development</p>
+                                <p><strong>Weeks 6-7:</strong> Optimization and refinement</p>
+                                <p><strong>Week 8:</strong> Launch and ongoing support</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Elephant Projects (8-16 weeks, $25K-$100K+)</h3>
+                            <div class="card-content">
+                                <p><strong>Weeks 1-3:</strong> Comprehensive discovery and strategic planning</p>
+                                <p><strong>Weeks 4-8:</strong> Core system development and integration</p>
+                                <p><strong>Weeks 9-12:</strong> Advanced features and optimization</p>
+                                <p><strong>Weeks 13-15:</strong> Testing, refinement, and training</p>
+                                <p><strong>Week 16:</strong> Launch and ongoing strategic partnership</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Quality Standards</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Human-First Approach</h3>
+                            <div class="card-content">
+                                <p>Technology that augments human capabilities, not replaces them. Every solution is designed to enhance productivity while maintaining human oversight and decision-making.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Local Support</h3>
+                            <div class="card-content">
+                                <p>Personal relationships over ticket queues. Direct access to Gabriel for strategic decisions, with responsive support tailored to Northern BC business needs.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Transparency</h3>
+                            <div class="card-content">
+                                <p>Show work, explain processes, provide documentation. Clients understand what's being built and how it works, with clear communication throughout the project.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Reliability</h3>
+                            <div class="card-content">
+                                <p>Systems that work without constant oversight. Robust architecture, thorough testing, and comprehensive documentation ensure long-term stability.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Continuous Improvement</h3>
+                            <div class="card-content">
+                                <p>Ongoing optimization and enhancement. Regular reviews, performance monitoring, and iterative improvements based on real-world usage and feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Success Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">95%+</div>
+                            <div class="metric-label">Client Satisfaction</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">100%</div>
+                            <div class="metric-label">On-Time Delivery</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">10-20 hrs</div>
+                            <div class="metric-label">Monthly Time Savings</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">15-30%</div>
+                            <div class="metric-label">Efficiency Improvement</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">10-25%</div>
+                            <div class="metric-label">Client Revenue Growth</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Discovery Processes -->
+            <section id="discovery" class="section">
+                <h2 class="section-title">Discovery Processes</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Systematic Framework for Measuring Achievable Processes</h3>
+                    <div class="card">
+                        <h3 class="card-title">Discovery Process Overview</h3>
+                        <div class="card-content">
+                            <p><strong>Our systematic approach to determining which processes are achievable and valuable for AI implementation.</strong></p>
+                            
+                            <div class="content-grid">
+                                <div class="card">
+                                    <h4 class="card-title">Phase 1: Initial Client Assessment</h4>
+                                    <div class="card-content">
+                                        <p><strong>Duration:</strong> 1-2 hours</p>
+                                        <p><strong>Objective:</strong> Determine client fit and project scope</p>
+                                        <p><strong>Deliverable:</strong> Go/No-Go decision and preliminary project outline</p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <h4 class="card-title">Phase 2: Deep Process Discovery</h4>
+                                    <div class="card-content">
+                                        <p><strong>Duration:</strong> 4-8 hours</p>
+                                        <p><strong>Objective:</strong> Map current state and identify optimization opportunities</p>
+                                        <p><strong>Deliverable:</strong> Comprehensive process analysis and recommendations</p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <h4 class="card-title">Phase 3: Technical Feasibility Assessment</h4>
+                                    <div class="card-content">
+                                        <p><strong>Duration:</strong> 2-4 hours</p>
+                                        <p><strong>Objective:</strong> Evaluate technical requirements and constraints</p>
+                                        <p><strong>Deliverable:</strong> Technical implementation plan and timeline</p>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <h4 class="card-title">Phase 4: ROI Analysis & Prioritization</h4>
+                                    <div class="card-content">
+                                        <p><strong>Duration:</strong> 2-3 hours</p>
+                                        <p><strong>Objective:</strong> Quantify value and prioritize implementation</p>
+                                        <p><strong>Deliverable:</strong> ROI projections and implementation roadmap</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Client Qualification Framework</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Business Profile Assessment</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li>Company size (employees, revenue, industry)</li>
+                                    <li>Current technology stack and systems</li>
+                                    <li>Digital maturity level (1-10 scale)</li>
+                                    <li>Budget range and decision-making process</li>
+                                    <li>Timeline expectations and constraints</li>
+                                    <li>Previous AI/automation experience</li>
+                                    <li>Pain points and inefficiencies</li>
+                                    <li>Growth plans and scalability needs</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Decision Maker Analysis</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li>Primary decision maker identified</li>
+                                    <li>Decision-making process and timeline</li>
+                                    <li>Budget authority and approval process</li>
+                                    <li>Technical knowledge and comfort level</li>
+                                    <li>Change management experience</li>
+                                    <li>Communication preferences</li>
+                                    <li>Availability for project involvement</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Client Fit Decision Matrix</h3>
+                            <div class="card-content">
+                                <div class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Criteria</th>
+                                                <th>Weight</th>
+                                                <th>Score (1-10)</th>
+                                                <th>Weighted Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Budget Alignment</td>
+                                                <td>25%</td>
+                                                <td>___</td>
+                                                <td>___</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Process Complexity</td>
+                                                <td>20%</td>
+                                                <td>___</td>
+                                                <td>___</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Technical Readiness</td>
+                                                <td>20%</td>
+                                                <td>___</td>
+                                                <td>___</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Change Management</td>
+                                                <td>15%</td>
+                                                <td>___</td>
+                                                <td>___</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Strategic Value</td>
+                                                <td>10%</td>
+                                                <td>___</td>
+                                                <td>___</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Timeline Feasibility</td>
+                                                <td>10%</td>
+                                                <td>___</td>
+                                                <td>___</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Total Score</strong></td>
+                                                <td><strong>100%</strong></td>
+                                                <td></td>
+                                                <td><strong>___/10</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <h4>Decision Thresholds:</h4>
+                                <ul>
+                                    <li><strong>8.0+:</strong> Immediate Go - High priority client</li>
+                                    <li><strong>6.0-7.9:</strong> Conditional Go - Requires specific conditions</li>
+                                    <li><strong>4.0-5.9:</strong> Maybe - Needs additional qualification</li>
+                                    <li><strong>Below 4.0:</strong> No Go - Not a good fit</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Process Optimization Framework</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Current State Analysis</h3>
+                            <div class="card-content">
+                                <h4>Process Identification:</h4>
+                                <ul>
+                                    <li>List all processes related to the project scope</li>
+                                    <li>Map process owners and stakeholders</li>
+                                    <li>Document current workflows and decision points</li>
+                                    <li>Identify data inputs and outputs</li>
+                                    <li>Note current tools and systems used</li>
+                                    <li>Record time estimates for each step</li>
+                                    <li>Identify bottlenecks and pain points</li>
+                                    <li>Document error rates and quality issues</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Automation Potential Matrix</h3>
+                            <div class="card-content">
+                                <div class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Process</th>
+                                                <th>Current Time</th>
+                                                <th>Frequency</th>
+                                                <th>Complexity</th>
+                                                <th>Automation Potential</th>
+                                                <th>Priority</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>[Process 1]</td>
+                                                <td>___ hours</td>
+                                                <td>Daily/Weekly/Monthly</td>
+                                                <td>Low/Med/High</td>
+                                                <td>Low/Med/High</td>
+                                                <td>High/Med/Low</td>
+                                            </tr>
+                                            <tr>
+                                                <td>[Process 2]</td>
+                                                <td>___ hours</td>
+                                                <td>Daily/Weekly/Monthly</td>
+                                                <td>Low/Med/High</td>
+                                                <td>Low/Med/High</td>
+                                                <td>High/Med/Low</td>
+                                            </tr>
+                                            <tr>
+                                                <td>[Process 3]</td>
+                                                <td>___ hours</td>
+                                                <td>Daily/Weekly/Monthly</td>
+                                                <td>Low/Med/High</td>
+                                                <td>Low/Med/High</td>
+                                                <td>High/Med/Low</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <h4>Automation Potential Scoring:</h4>
+                                <ul>
+                                    <li><strong>High (8-10 points):</strong> Easy to automate, high impact</li>
+                                    <li><strong>Medium (5-7 points):</strong> Moderate complexity, good impact</li>
+                                    <li><strong>Low (1-4 points):</strong> Complex or low impact</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">ROI Analysis Framework</h3>
+                            <div class="card-content">
+                                <h4>Value Quantification:</h4>
+                                <ul>
+                                    <li><strong>Time Savings:</strong> Hours saved × hourly cost</li>
+                                    <li><strong>Error Reduction:</strong> Error frequency × cost per error</li>
+                                    <li><strong>Revenue Impact:</strong> Additional capacity × revenue per unit</li>
+                                    <li><strong>Quality Improvements:</strong> Customer satisfaction gains</li>
+                                    <li><strong>Competitive Advantages:</strong> Market positioning value</li>
+                                </ul>
+                                
+                                <h4>ROI Formula:</h4>
+                                <p><strong>(Total Benefits - Total Costs) ÷ Total Costs × 100</strong></p>
+                                
+                                <h4>Cost Components:</h4>
+                                <ul>
+                                    <li>Implementation costs</li>
+                                    <li>Software/licensing costs</li>
+                                    <li>Training costs</li>
+                                    <li>Ongoing maintenance costs</li>
+                                    <li>Opportunity costs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Implementation Decision Matrix</h3>
+                    <div class="card">
+                        <h3 class="card-title">Final Go/No-Go Decision Framework</h3>
+                        <div class="card-content">
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Criteria</th>
+                                            <th>Weight</th>
+                                            <th>Score (1-10)</th>
+                                            <th>Weighted Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Business Value</strong></td>
+                                            <td>25%</td>
+                                            <td>___</td>
+                                            <td>___</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Technical Feasibility</strong></td>
+                                            <td>20%</td>
+                                            <td>___</td>
+                                            <td>___</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>ROI Potential</strong></td>
+                                            <td>20%</td>
+                                            <td>___</td>
+                                            <td>___</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Client Readiness</strong></td>
+                                            <td>15%</td>
+                                            <td>___</td>
+                                            <td>___</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Resource Requirements</strong></td>
+                                            <td>10%</td>
+                                            <td>___</td>
+                                            <td>___</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Timeline Feasibility</strong></td>
+                                            <td>10%</td>
+                                            <td>___</td>
+                                            <td>___</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Total Score</strong></td>
+                                            <td><strong>100%</strong></td>
+                                            <td></td>
+                                            <td><strong>___/10</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <h4>Decision Thresholds:</h4>
+                            <ul>
+                                <li><strong>8.0+:</strong> Immediate Go - High priority, high value</li>
+                                <li><strong>6.0-7.9:</strong> Conditional Go - Requires specific conditions</li>
+                                <li><strong>4.0-5.9:</strong> Maybe - Needs additional analysis</li>
+                                <li><strong>Below 4.0:</strong> No Go - Not viable</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technology & Prompt Library -->
+            <section id="technology" class="section">
+                <h2 class="section-title">Technology & Prompt Library</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">AI Tool Selection Matrix</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Document Processing Tools</h3>
+                            <div class="card-content">
+                                <h4>OpenAI API</h4>
+                                <ul>
+                                    <li><strong>Best For:</strong> Text analysis, content generation, data extraction</li>
+                                    <li><strong>Cost:</strong> $0.03/1K tokens (GPT-4), $0.002/1K tokens (GPT-3.5)</li>
+                                    <li><strong>Strengths:</strong> High-quality text processing, multiple model options, reliable performance</li>
+                                    <li><strong>Weaknesses:</strong> Higher cost for large volumes, rate limits, data privacy concerns</li>
+                                    <li><strong>Use Cases:</strong> Email content analysis, document summarization, data extraction from forms</li>
+                                </ul>
+
+                                <h4>Google Cloud AI</h4>
+                                <ul>
+                                    <li><strong>Best For:</strong> Document processing, image analysis, translation</li>
+                                    <li><strong>Cost:</strong> $1.50/1K pages (Document AI)</li>
+                                    <li><strong>Strengths:</strong> Excellent document processing, good image analysis, enterprise-grade security</li>
+                                    <li><strong>Weaknesses:</strong> More complex setup, higher learning curve, Google ecosystem dependency</li>
+                                    <li><strong>Use Cases:</strong> Invoice processing, receipt analysis, document classification</li>
+                                </ul>
+
+                                <h4>Azure Cognitive Services</h4>
+                                <ul>
+                                    <li><strong>Best For:</strong> Enterprise integration, Microsoft ecosystem</li>
+                                    <li><strong>Cost:</strong> $1.50/1K transactions (Form Recognizer)</li>
+                                    <li><strong>Strengths:</strong> Excellent Microsoft integration, enterprise security, comprehensive AI services</li>
+                                    <li><strong>Weaknesses:</strong> Microsoft ecosystem dependency, higher cost, complex pricing model</li>
+                                    <li><strong>Use Cases:</strong> Office 365 integration, enterprise document processing</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Workflow Automation Tools</h3>
+                            <div class="card-content">
+                                <h4>Zapier</h4>
+                                <ul>
+                                    <li><strong>Best For:</strong> Simple integrations, non-technical users</li>
+                                    <li><strong>Cost:</strong> $20-50/month (Professional plan)</li>
+                                    <li><strong>Strengths:</strong> Easy to use, large app ecosystem, good documentation</li>
+                                    <li><strong>Weaknesses:</strong> Limited customization, higher cost for complex workflows</li>
+                                    <li><strong>Use Cases:</strong> Simple data transfers, notification systems, basic workflow automation</li>
+                                </ul>
+
+                                <h4>Make.com (Integromat)</h4>
+                                <ul>
+                                    <li><strong>Best For:</strong> Complex workflows, advanced automation</li>
+                                    <li><strong>Cost:</strong> $9-29/month (Core plan)</li>
+                                    <li><strong>Strengths:</strong> Powerful workflow builder, good error handling, advanced logic capabilities</li>
+                                    <li><strong>Weaknesses:</strong> Steeper learning curve, less intuitive interface</li>
+                                    <li><strong>Use Cases:</strong> Complex business processes, multi-step automations, custom integrations</li>
+                                </ul>
+
+                                <h4>Microsoft Power Automate</h4>
+                                <ul>
+                                    <li><strong>Best For:</strong> Microsoft ecosystem, enterprise environments</li>
+                                    <li><strong>Cost:</strong> $15/user/month (Premium plan)</li>
+                                    <li><strong>Strengths:</strong> Excellent Microsoft integration, enterprise features, good security</li>
+                                    <li><strong>Weaknesses:</strong> Microsoft ecosystem dependency, complex licensing</li>
+                                    <li><strong>Use Cases:</strong> Office 365 automation, enterprise workflows, Microsoft Teams integration</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Data Analysis Tools</h3>
+                            <div class="card-content">
+                                <h4>Python/Pandas</h4>
+                                <ul>
+                                    <li><strong>Best For:</strong> Custom data analysis, complex calculations</li>
+                                    <li><strong>Cost:</strong> Free (development time)</li>
+                                    <li><strong>Strengths:</strong> Complete flexibility, powerful analysis capabilities, extensive libraries</li>
+                                    <li><strong>Weaknesses:</strong> Requires programming knowledge, development time</li>
+                                    <li><strong>Use Cases:</strong> Custom analytics, complex data transformations, statistical analysis</li>
+                                </ul>
+
+                                <h4>Power BI</h4>
+                                <ul>
+                                    <li><strong>Best For:</strong> Business intelligence, reporting, Microsoft integration</li>
+                                    <li><strong>Cost:</strong> $10/user/month (Pro plan)</li>
+                                    <li><strong>Strengths:</strong> Excellent visualization, good Microsoft integration, user-friendly interface</li>
+                                    <li><strong>Weaknesses:</strong> Microsoft ecosystem dependency, licensing costs</li>
+                                    <li><strong>Use Cases:</strong> Business dashboards, KPI reporting, data visualization</li>
+                                </ul>
+
+                                <h4>Tableau</h4>
+                                <ul>
+                                    <li><strong>Best For:</strong> Advanced analytics, complex visualizations</li>
+                                    <li><strong>Cost:</strong> $70/user/month (Creator plan)</li>
+                                    <li><strong>Strengths:</strong> Powerful visualization capabilities, advanced analytics, enterprise features</li>
+                                    <li><strong>Weaknesses:</strong> High cost, steep learning curve, complex setup</li>
+                                    <li><strong>Use Cases:</strong> Advanced analytics, complex visualizations, enterprise reporting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Prompt Library</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Discovery Phase Prompts</h3>
+                            <div class="card-content">
+                                <h4>Initial Client Assessment</h4>
+                                <div class="code-block">
+                                    <p><strong>Role:</strong> Business consultant specializing in AI and automation</p>
+                                    <p><strong>Goal:</strong> Understand current business processes, identify pain points, assess technical readiness</p>
+                                    <p><strong>Key Questions:</strong></p>
+                                    <ul>
+                                        <li>"Tell me about your current process for [specific area]"</li>
+                                        <li>"What's the most frustrating part of this process?"</li>
+                                        <li>"How much time do you spend on this per week?"</li>
+                                        <li>"What happens when things go wrong?"</li>
+                                        <li>"What would success look like for you?"</li>
+                                        <li>"What's your biggest concern about implementing AI/automation?"</li>
+                                    </ul>
+                                </div>
+
+                                <h4>Process Mapping</h4>
+                                <div class="code-block">
+                                    <p><strong>Role:</strong> Process improvement specialist</p>
+                                    <p><strong>Goal:</strong> Map complete process flow, identify stakeholders, document time estimates</p>
+                                    <p><strong>Process Steps:</strong></p>
+                                    <ul>
+                                        <li>Start with trigger/initiation</li>
+                                        <li>Map each step in sequence</li>
+                                        <li>Identify who performs each step</li>
+                                        <li>Document tools and systems used</li>
+                                        <li>Note decision points and exceptions</li>
+                                        <li>Record time estimates and quality issues</li>
+                                    </ul>
+                                </div>
+
+                                <h4>Technical Assessment</h4>
+                                <div class="code-block">
+                                    <p><strong>Role:</strong> Technical consultant</p>
+                                    <p><strong>Goal:</strong> Evaluate current technology stack, assess integration requirements</p>
+                                    <p><strong>Assessment Areas:</strong></p>
+                                    <ul>
+                                        <li>Current software systems and versions</li>
+                                        <li>Data storage and management</li>
+                                        <li>Integration capabilities and APIs</li>
+                                        <li>Security and compliance requirements</li>
+                                        <li>IT support and maintenance</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Analysis Phase Prompts</h3>
+                            <div class="card-content">
+                                <h4>ROI Analysis</h4>
+                                <div class="code-block">
+                                    <p><strong>Role:</strong> Business analyst</p>
+                                    <p><strong>Goal:</strong> Quantify current costs, project potential savings, calculate ROI</p>
+                                    <p><strong>Cost Components:</strong></p>
+                                    <ul>
+                                        <li>Labor costs (time × hourly rate)</li>
+                                        <li>Error costs (frequency × cost per error)</li>
+                                        <li>Opportunity costs (time not spent on growth)</li>
+                                        <li>Overtime and temporary help costs</li>
+                                    </ul>
+                                    <p><strong>ROI Formula:</strong> (Total Benefits - Total Costs) ÷ Total Costs × 100</p>
+                                </div>
+
+                                <h4>Priority Assessment</h4>
+                                <div class="code-block">
+                                    <p><strong>Role:</strong> Project manager</p>
+                                    <p><strong>Goal:</strong> Evaluate opportunities against multiple criteria, create implementation roadmap</p>
+                                    <p><strong>Assessment Criteria:</strong></p>
+                                    <ul>
+                                        <li>Business Value (impact on operations, customers, revenue)</li>
+                                        <li>Technical Feasibility (complexity, integration requirements)</li>
+                                        <li>ROI Potential (cost savings, revenue impact, payback period)</li>
+                                        <li>Implementation Effort (time, resources, complexity)</li>
+                                        <li>Client Readiness (change management, technical comfort)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Implementation Phase Prompts</h3>
+                            <div class="card-content">
+                                <h4>Solution Design</h4>
+                                <div class="code-block">
+                                    <p><strong>Role:</strong> Solution architect</p>
+                                    <p><strong>Goal:</strong> Design optimal technical solution, ensure integration, plan for scalability</p>
+                                    <p><strong>Design Components:</strong></p>
+                                    <ul>
+                                        <li>Architecture overview and system integration</li>
+                                        <li>Data flow and processing requirements</li>
+                                        <li>User interface and experience design</li>
+                                        <li>Security and compliance measures</li>
+                                        <li>Testing and validation approach</li>
+                                    </ul>
+                                </div>
+
+                                <h4>Change Management</h4>
+                                <div class="code-block">
+                                    <p><strong>Role:</strong> Change management specialist</p>
+                                    <p><strong>Goal:</strong> Assess change readiness, develop strategy, ensure successful adoption</p>
+                                    <p><strong>Change Management Components:</strong></p>
+                                    <ul>
+                                        <li>Stakeholder analysis and engagement</li>
+                                        <li>Communication plan and messaging</li>
+                                        <li>Training and skill development</li>
+                                        <li>Resistance management</li>
+                                        <li>Success measurement and feedback</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Technology Decision Framework</h3>
+                    <div class="card">
+                        <h3 class="card-title">Tool Selection Criteria</h3>
+                        <div class="card-content">
+                            <div class="content-grid">
+                                <div class="card">
+                                    <h4 class="card-title">Functionality Assessment</h4>
+                                    <div class="card-content">
+                                        <ul>
+                                            <li>Does it solve the specific problem?</li>
+                                            <li>What features and capabilities does it offer?</li>
+                                            <li>How well does it integrate with existing systems?</li>
+                                            <li>What are the limitations and constraints?</li>
+                                            <li>How does it compare to alternatives?</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <h4 class="card-title">Technical Evaluation</h4>
+                                    <div class="card-content">
+                                        <ul>
+                                            <li>What are the technical requirements?</li>
+                                            <li>How complex is the implementation?</li>
+                                            <li>What are the integration requirements?</li>
+                                            <li>What are the performance characteristics?</li>
+                                            <li>What are the security and compliance features?</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <h4 class="card-title">Cost Analysis</h4>
+                                    <div class="card-content">
+                                        <ul>
+                                            <li>What are the upfront costs?</li>
+                                            <li>What are the ongoing costs?</li>
+                                            <li>What are the hidden costs?</li>
+                                            <li>What is the total cost of ownership?</li>
+                                            <li>What is the ROI and payback period?</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <h4 class="card-title">Support and Maintenance</h4>
+                                    <div class="card-content">
+                                        <ul>
+                                            <li>What level of support is available?</li>
+                                            <li>What are the maintenance requirements?</li>
+                                            <li>How easy is it to troubleshoot issues?</li>
+                                            <li>What are the update and upgrade processes?</li>
+                                            <li>What are the long-term sustainability considerations?</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4>Decision Matrix Template</h4>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Tool</th>
+                                            <th>Functionality</th>
+                                            <th>Technical</th>
+                                            <th>Cost</th>
+                                            <th>Support</th>
+                                            <th>Total Score</th>
+                                            <th>Recommendation</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>[Tool 1]</td>
+                                            <td>___/10</td>
+                                            <td>___/10</td>
+                                            <td>___/10</td>
+                                            <td>___/10</td>
+                                            <td>___/40</td>
+                                            <td>[Go/No-Go]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[Tool 2]</td>
+                                            <td>___/10</td>
+                                            <td>___/10</td>
+                                            <td>___/10</td>
+                                            <td>___/10</td>
+                                            <td>___/40</td>
+                                            <td>[Go/No-Go]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>[Tool 3]</td>
+                                            <td>___/10</td>
+                                            <td>___/10</td>
+                                            <td>___/10</td>
+                                            <td>___/10</td>
+                                            <td>___/40</td>
+                                            <td>[Go/No-Go]</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h4>Scoring Guidelines:</h4>
+                            <ul>
+                                <li><strong>8-10:</strong> Excellent fit, highly recommended</li>
+                                <li><strong>6-7:</strong> Good fit, recommended with conditions</li>
+                                <li><strong>4-5:</strong> Moderate fit, consider alternatives</li>
+                                <li><strong>1-3:</strong> Poor fit, not recommended</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Position -->
+            <section id="market" class="section">
+                <h2 class="section-title">Market Position</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Geographic Focus</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Primary Market</h3>
+                            <div class="card-content">
+                                <p><strong>Northern BC Northwest Region</strong></p>
+                                <ul>
+                                    <li>Terrace, BC (home base)</li>
+                                    <li>Kitimat, BC (industrial focus)</li>
+                                    <li>Prince Rupert, BC (port city)</li>
+                                    <li>Smithers, BC (agricultural/tourism)</li>
+                                </ul>
+                                <p><strong>Population:</strong> ~50,000 across target region</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Market Characteristics</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li><strong>Key Industries:</strong> Manufacturing, forestry, mining, tourism, professional services</li>
+                                    <li><strong>Digital Engagement:</strong> High online presence, mobile-first</li>
+                                    <li><strong>Business Culture:</strong> Relationship-based, local preference</li>
+                                    <li><strong>Seasonal Patterns:</strong> Resource industry cycles</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Competitive Advantages</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li><strong>First-Mover Advantage:</strong> Limited AI competition in Northern BC market</li>
+                                    <li><strong>Personal Service:</strong> Solo founder providing direct access</li>
+                                    <li><strong>Local Expertise:</strong> Understanding of Northern BC business realities</li>
+                                    <li><strong>Innovation Leadership:</strong> Cutting-edge solutions with proven reliability</li>
+                                    <li><strong>Educational Approach:</strong> Teaching before selling</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Operations -->
+            <section id="operations" class="section">
+                <h2 class="section-title">Operations</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Solo Founder Workflow</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Daily Operations (45-50 hours/week)</h3>
+                            <div class="card-content">
+                                <p><strong>Morning Routine (9-10 AM):</strong></p>
+                                <ul>
+                                    <li>Check client communications and urgent issues</li>
+                                    <li>Review daily priorities and project status</li>
+                                    <li>Update project management systems</li>
+                                </ul>
+                                
+                                <p><strong>Client Work (10 AM - 4 PM):</strong></p>
+                                <ul>
+                                    <li>Active project development and implementation</li>
+                                    <li>Client calls and consultations</li>
+                                    <li>AI tool setup and configuration</li>
+                                </ul>
+
+                                <p><strong>Business Development (4-6 PM):</strong></p>
+                                <ul>
+                                    <li>Content creation for marketing</li>
+                                    <li>Chamber of Commerce networking</li>
+                                    <li>Workshop and seminar preparation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Gabriel's AI Toolkit</h3>
+                            <div class="card-content">
+                                <h4>Primary AI Tools:</h4>
+                                <ul>
+                                    <li><strong>ChatGPT Plus:</strong> Client consultations, content creation</li>
+                                    <li><strong>Claude:</strong> Complex analysis, strategic planning</li>
+                                    <li><strong>Cursor:</strong> AI-powered development environment</li>
+                                    <li><strong>GitHub Copilot:</strong> Code generation assistance</li>
+                                </ul>
+
+                                <h4>AI Integration Tools:</h4>
+                                <ul>
+                                    <li><strong>Zapier:</strong> Workflow automation</li>
+                                    <li><strong>Make.com:</strong> Advanced automation</li>
+                                    <li><strong>OpenAI API:</strong> Custom AI solutions</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Northern BC Specific Operations</h3>
+                            <div class="card-content">
+                                <h4>Local Market Adaptation:</h4>
+                                <ul>
+                                    <li><strong>Seasonal Considerations:</strong> Resource industry cycles</li>
+                                    <li><strong>Weather Impact:</strong> Winter travel limitations</li>
+                                    <li><strong>Community Events:</strong> Chamber meetings, networking</li>
+                                    <li><strong>Cultural Sensitivity:</strong> Indigenous community engagement</li>
+                                    <li><strong>Local Preferences:</strong> Face-to-face over virtual</li>
+                                </ul>
+
+                                <h4>Client Relationship Management:</h4>
+                                <ul>
+                                    <li><strong>Personal Touch:</strong> Direct access to founder</li>
+                                    <li><strong>Local Understanding:</strong> Northern BC business realities</li>
+                                    <li><strong>Community Integration:</strong> Active in local business community</li>
+                                    <li><strong>Referral Network:</strong> Word-of-mouth connections</li>
+                                    <li><strong>Long-term Partnerships:</strong> Growing together with clients</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Financial Strategy -->
+            <section id="financial" class="section">
+                <h2 class="section-title">Financial Strategy</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Revenue Targets</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">$50K-75K</div>
+                            <div class="metric-label">Year 1 Revenue (Conservative)</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">$100K-150K</div>
+                            <div class="metric-label">Year 2 Revenue</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">$200K-300K</div>
+                            <div class="metric-label">Year 3 Revenue</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Revenue Streams</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Project-Based Revenue (70%)</h3>
+                            <div class="card-content">
+                                <h4>Digital Strategy & AI Integration:</h4>
+                                <ul>
+                                    <li>Rabbits: $2K-$5K per project</li>
+                                    <li>Deer: $6K-$20K per project</li>
+                                    <li>Elephants: $25K-$150K+ per project</li>
+                                </ul>
+
+                                <h4>Web Development & Design:</h4>
+                                <ul>
+                                    <li>Rabbits: $1K-$3K per project</li>
+                                    <li>Deer: $3K-$8K per project</li>
+                                    <li>Elephants: $10K-$50K per project</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Recurring Revenue (30%)</h3>
+                            <div class="card-content">
+                                <h4>Monthly Retainers:</h4>
+                                <ul>
+                                    <li>Basic Support: $500-$1,500/month</li>
+                                    <li>Full Service: $2K-$5K/month</li>
+                                    <li>Enterprise: $5K-$15K/month</li>
+                                </ul>
+
+                                <h4>Hosting & Maintenance:</h4>
+                                <ul>
+                                    <li>Website Hosting: $100-$500/month</li>
+                                    <li>System Maintenance: $200-$1K/month</li>
+                                    <li>AI Model Hosting: $300-$2K/month</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Cost Structure</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Cost Category</th>
+                                    <th>Monthly Range</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Insurance</td>
+                                    <td>TBD</td>
+                                    <td>Professional liability, cyber, general (not yet set)</td>
+                                </tr>
+                                <tr>
+                                    <td>Software/Tools</td>
+                                    <td>$50-$100</td>
+                                    <td>AI tools, development software, subscriptions</td>
+                                </tr>
+                                <tr>
+                                    <td>Office/Equipment</td>
+                                    <td>$100-$200</td>
+                                    <td>Home office, equipment, utilities</td>
+                                </tr>
+                                <tr>
+                                    <td>Marketing</td>
+                                    <td>$200-$400</td>
+                                    <td>Events, materials, networking</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total Fixed</strong></td>
+                                    <td><strong>$350-$700</strong></td>
+                                    <td><strong>Monthly fixed costs (realistic)</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Marketing Strategy -->
+            <section id="marketing" class="section">
+                <h2 class="section-title">Marketing Strategy</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Brand Identity</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Core Messaging</h3>
+                            <div class="card-content">
+                                <p><strong>Primary Tagline:</strong> "Work less, Achieve more"</p>
+                                <p><strong>Secondary Tagline:</strong> "Continuous Improvement"</p>
+                                <p><strong>Value Proposition:</strong> "We make technology make sense"</p>
+                                <p><strong>Mission:</strong> "Moving the North forward through Digital Strategy"</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Visual Identity</h3>
+                            <div class="card-content">
+                                <p><strong>Color Palette:</strong></p>
+                                <ul>
+                                    <li>Deep Ink (#0A0A0A)</li>
+                                    <li>Glitch Cyan (#00FFFF)</li>
+                                    <li>VHS Purple (#8A2BE2)</li>
+                                    <li>Warp Green (#00FF41)</li>
+                                    <li>Artifact Orange (#FF6B35)</li>
+                                </ul>
+                                <p><strong>Aesthetic:</strong> Futuristic brutalist with VHS style overexposure and camera artifacts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Event Strategy & Calendar</h3>
+                    
+                    <div class="subsection">
+                        <h4 class="subsection-title">Quarterly Workshops (4 per year)</h4>
+                        <div class="card">
+                            <h3 class="card-title">Quarterly AI Business Presentation</h3>
+                            <div class="card-content">
+                                <p><strong>Event Type:</strong> Free quarterly workshops</p>
+                                <p><strong>Duration:</strong> 2-3 hours</p>
+                                <p><strong>Target Audience:</strong> Local business owners and decision makers</p>
+                                <p><strong>Expected Attendance:</strong> 15-40 people per event</p>
+                                <p><strong>Cost:</strong> Free to attendees</p>
+                                <p><strong>Per Event Cost:</strong> $1,200 (Room rental $450 + Food/supplies $150 + Print/social media $500 + Charcuterie $200)</p>
+                                
+                                <h4>Event Structure:</h4>
+                                <p><strong>Based on October 23rd, 2024 presentation format:</strong></p>
+                                <ul>
+                                    <li><strong>AI Introduction:</strong> Demystifying AI for Northern BC businesses</li>
+                                    <li><strong>Local Context:</strong> AI opportunities specific to our region</li>
+                                    <li><strong>Practical Applications:</strong> Real-world AI use cases</li>
+                                    <li><strong>Implementation Roadmap:</strong> How to get started with AI</li>
+                                    <li><strong>Live Demonstrations:</strong> AI tools in action</li>
+                                    <li><strong>Q&A Session:</strong> Addressing specific business needs</li>
+                                    <li><strong>Networking:</strong> Business connections and follow-up opportunities</li>
+                                </ul>
+
+                                <h4>Content Evolution:</h4>
+                                <ul>
+                                    <li><strong>Q1:</strong> Core presentation with updated case studies</li>
+                                    <li><strong>Q2:</strong> Refined content based on Q1 feedback and new developments</li>
+                                    <li><strong>Q3:</strong> Enhanced presentation with latest AI trends and tools</li>
+                                    <li><strong>Q4:</strong> Year-end summary with success stories and 2026 preview</li>
+                                </ul>
+
+                                <h4>Goals & Objectives:</h4>
+                                <ul>
+                                    <li>Educate local businesses about AI opportunities</li>
+                                    <li>Build awareness and credibility for Kaizen Strategic AI</li>
+                                    <li>Generate qualified leads and consultation requests</li>
+                                    <li>Establish Gabriel as the local AI authority</li>
+                                    <li>Create networking opportunities and partnerships</li>
+                                    <li>Gather feedback to improve services and content</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4 class="subsection-title">Annual AI Summit (Summer)</h4>
+                        <div class="card">
+                            <h3 class="card-title">Northern BC AI Summit</h3>
+                            <div class="card-content">
+                                <p><strong>Event Overview:</strong> Premier AI strategy conference for Northern BC businesses</p>
+                                <p><strong>Duration:</strong> Full day (8 hours)</p>
+                                <p><strong>Target Audience:</strong> Business leaders, decision makers, and tech professionals</p>
+                                <p><strong>Expected Attendance:</strong> 100-150 people</p>
+                                <p><strong>Budget:</strong> $1,200 (50% of 4 quarterly events)</p>
+                                
+                                <h4>Event Structure:</h4>
+                                <ul>
+                                    <li><strong>Morning Keynote:</strong> Gabriel presenting "The Future of AI in Northern BC"</li>
+                                    <li><strong>Guest Speakers:</strong> Invited tech leaders and industry experts</li>
+                                    <li><strong>Panel Discussions:</strong> AI implementation challenges and solutions</li>
+                                    <li><strong>Breakout Sessions:</strong> Industry-specific AI applications</li>
+                                    <li><strong>Networking Lunch:</strong> Business connections and partnerships</li>
+                                    <li><strong>Afternoon Workshops:</strong> Hands-on AI tool demonstrations</li>
+                                    <li><strong>Closing Keynote:</strong> Regional AI strategy and opportunities</li>
+                                </ul>
+
+                                <h4>Guest Speaker Categories:</h4>
+                                <ul>
+                                    <li><strong>Tech Leaders:</strong> AI researchers, startup founders, tech executives</li>
+                                    <li><strong>Industry Experts:</strong> Sector-specific AI implementation specialists</li>
+                                    <li><strong>Government Representatives:</strong> Digital transformation policy makers</li>
+                                    <li><strong>Academic Partners:</strong> University AI researchers and professors</li>
+                                    <li><strong>Success Stories:</strong> Local businesses with AI transformation stories</li>
+                                </ul>
+
+                                <h4>Expected Outcomes:</h4>
+                                <ul>
+                                    <li>Establish Kaizen as regional AI authority</li>
+                                    <li>Generate 50+ qualified leads</li>
+                                    <li>Build strategic partnerships and relationships</li>
+                                    <li>Create media coverage and thought leadership</li>
+                                    <li>Position Northern BC as AI innovation hub</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Marketing Budget & Financial Reality</h3>
+                    
+                    <div class="card">
+                        <h3 class="card-title">Current Financial Situation (2025-2026)</h3>
+                        <div class="card-content">
+                            <h4>Available Resources:</h4>
+                            <ul>
+                                <li><strong>BYOF Grant:</strong> $5,000 total (reimbursement after spending)</li>
+                                <li><strong>Current Revenue:</strong> ~$10,000 (first 6 months)</li>
+                                <li><strong>No Contracts Yet:</strong> Only leads and prospects</li>
+                                <li><strong>Focus:</strong> Market awareness and education first</li>
+                                <li><strong>Grant Deadline:</strong> February 2026 to complete requirements</li>
+                            </ul>
+
+                            <h4>BYOF Grant Structure (Two-Part Reimbursement):</h4>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Phase</th>
+                                            <th>Requirement</th>
+                                            <th>Reimbursement</th>
+                                            <th>Timeline</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Phase 1</td>
+                                            <td>Spend $2,500 + Business License + Invoice Proof</td>
+                                            <td>$2,500</td>
+                                            <td>Immediate</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phase 2</td>
+                                            <td>Complete 7 workshops</td>
+                                            <td>$2,500</td>
+                                            <td>By February 2026</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Total</strong></td>
+                                            <td><strong>All requirements met</strong></td>
+                                            <td><strong>$5,000</strong></td>
+                                            <td><strong>February 2026</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h4>Grant Spending Plan (First $2,500):</h4>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Budget</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Incorporation</td>
+                                            <td>$600</td>
+                                            <td>BC Corporation registration and legal fees (planned, not yet spent)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Insurance</td>
+                                            <td>TBD</td>
+                                            <td>Professional liability, cyber, general business (not yet set)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Domain Registrations</td>
+                                            <td>$375.87</td>
+                                            <td>kaizenstrategic.ai, kaizenstrategicai.com, kaizenstrategicai.ca (2 years)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Business Name Registration</td>
+                                            <td>$31.50</td>
+                                            <td>Business name request and registration</td>
+                                        </tr>
+                                        <tr>
+                                            <td>October Event Expenses</td>
+                                            <td>$450</td>
+                                            <td>Room rental, projector, screen (receipts available)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Event Food & Supplies</td>
+                                            <td>$150</td>
+                                            <td>Food, drinks, supplies for October event</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Print & Social Media</td>
+                                            <td>$500</td>
+                                            <td>Newspaper ads and social media promotion (radio did nothing but get us in newspaper)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Business Cards</td>
+                                            <td>$50</td>
+                                            <td>Professional business cards</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Chamber Email Blast</td>
+                                            <td>$50</td>
+                                            <td>Chamber of Commerce marketing</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Chamber Membership</td>
+                                            <td>$50</td>
+                                            <td>Chamber membership for remainder of 2025</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Total Spent</strong></td>
+                                            <td><strong>$1,607.37</strong></td>
+                                            <td><strong>Actually spent so far</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Total Planned</strong></td>
+                                            <td><strong>$2,207.37</strong></td>
+                                            <td><strong>Including incorporation (not yet spent)</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h4>Revenue-First Strategy:</h4>
+                            <ul>
+                                <li><strong>Phase 1:</strong> Focus on getting first contracts and retainers</li>
+                                <li><strong>Phase 2:</strong> Reinvest revenue into marketing and growth</li>
+                                <li><strong>Phase 3:</strong> Scale marketing as income grows</li>
+                                <li><strong>Conservative Goal:</strong> $50K-75K revenue in 2026 (not $100K+)</li>
+                            </ul>
+
+                            <h4>Marketing by Ear Approach:</h4>
+                            <ul>
+                                <li>Start with free/low-cost tactics (events, networking, content)</li>
+                                <li>Invest in paid marketing only after securing consistent revenue</li>
+                                <li>Focus on relationship building and word-of-mouth</li>
+                                <li>Use grant money strategically for essential business setup</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Growth Strategy -->
+            <section id="growth" class="section">
+                <h2 class="section-title">Growth Strategy</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Growth Phases</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Phase 1: Foundation (Months 1-12)</h3>
+                            <div class="card-content">
+                                <p><strong>Revenue:</strong> $50K-75K annually</p>
+                                <p><strong>Clients:</strong> 5-8 active clients, primarily Deer segment</p>
+                                <p><strong>Team:</strong> Solo + 1 contractor/employee</p>
+                                <p><strong>Focus:</strong> Market presence, client base, service excellence</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Phase 2: Expansion (Months 13-24)</h3>
+                            <div class="card-content">
+                                <p><strong>Revenue:</strong> $100K-150K annually</p>
+                                <p><strong>Clients:</strong> 10-15 active clients across all segments</p>
+                                <p><strong>Team:</strong> 2-3 employees + contractors</p>
+                                <p><strong>Focus:</strong> Geographic expansion, team building, product development</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Phase 3: Leadership (Months 25-36)</h3>
+                            <div class="card-content">
+                                <p><strong>Revenue:</strong> $200K-300K annually</p>
+                                <p><strong>Clients:</strong> 20-25 active clients</p>
+                                <p><strong>Team:</strong> 5-8 employees</p>
+                                <p><strong>Focus:</strong> Market dominance, industry recognition, regional expansion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Future Vision</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">5-Year Vision</h3>
+                            <div class="card-content">
+                                <p><strong>"Northern BC's AI Authority and Regional Technology Leader"</strong></p>
+                                <ul>
+                                    <li>Dominant AI consulting firm in Northern BC</li>
+                                    <li>Regional expansion across BC and Western Canada</li>
+                                    <li>Complete AI ecosystem with proprietary products</li>
+                                    <li>15-20 employees across multiple locations</li>
+                                    <li>$1M-$2M annual revenue</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">10-Year Vision</h3>
+                            <div class="card-content">
+                                <p><strong>"Western Canada's Premier AI Consulting Firm"</strong></p>
+                                <ul>
+                                    <li>Leading AI consultancy in Western Canada</li>
+                                    <li>Multi-provincial presence</li>
+                                    <li>AI infrastructure, products, and consulting</li>
+                                    <li>50+ employees across multiple offices</li>
+                                    <li>$5M-$10M annual revenue</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Goals & Metrics -->
+            <section id="goals" class="section">
+                <h2 class="section-title">Goals & Metrics</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Key Performance Indicators</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">95%+</div>
+                            <div class="metric-label">Client Satisfaction</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">25%</div>
+                            <div class="metric-label">Market Share (Year 2)</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">40%</div>
+                            <div class="metric-label">Referral Rate</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">20-30%</div>
+                            <div class="metric-label">Monthly Growth</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Success Scenarios</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Best Case (25% probability)</h3>
+                            <div class="card-content">
+                                <p><strong>"AI Authority Dominance"</strong></p>
+                                <ul>
+                                    <li>Revenue: $100K-150K annually</li>
+                                    <li>Clients: 10-15 active clients</li>
+                                    <li>Market Position: 75%+ market share</li>
+                                    <li>Team: 2-3 employees + contractors</li>
+                                    <li>Recognition: Northern BC AI authority</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Realistic Case (45% probability)</h3>
+                            <div class="card-content">
+                                <p><strong>"Steady Growth Leader"</strong></p>
+                                <ul>
+                                    <li>Revenue: $50K-75K annually</li>
+                                    <li>Clients: 5-8 active clients</li>
+                                    <li>Market Position: 50% market share</li>
+                                    <li>Team: Solo + 1 contractor</li>
+                                    <li>Recognition: Top 3 AI consultant</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Conservative Case (20% probability)</h3>
+                            <div class="card-content">
+                                <p><strong>"Solid Foundation Builder"</strong></p>
+                                <ul>
+                                    <li>Revenue: $30K-50K annually</li>
+                                    <li>Clients: 3-5 active clients</li>
+                                    <li>Market Position: 35% market share</li>
+                                    <li>Team: Solo operation</li>
+                                    <li>Recognition: Established AI consultant</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Milestone Tracking</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Timeline</th>
+                                    <th>Key Milestones</th>
+                                    <th>Success Metrics</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Month 6</td>
+                                    <td>First $5,000 monthly revenue</td>
+                                    <td>3+ active clients, 90%+ satisfaction</td>
+                                </tr>
+                                <tr>
+                                    <td>Month 12</td>
+                                    <td>$50,000 annual revenue</td>
+                                    <td>8+ client relationships, market recognition</td>
+                                </tr>
+                                <tr>
+                                    <td>Month 18</td>
+                                    <td>$100,000 annual revenue</td>
+                                    <td>Geographic expansion, team growth</td>
+                                </tr>
+                                <tr>
+                                    <td>Month 24</td>
+                                    <td>$150,000 annual revenue</td>
+                                    <td>25+ client relationships, market leadership</td>
+                                </tr>
+                                <tr>
+                                    <td>Month 36</td>
+                                    <td>$300,000+ annual revenue</td>
+                                    <td>Regional expansion, industry recognition</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Legal & Compliance -->
+            <section id="legal" class="section">
+                <h2 class="section-title">Legal & Compliance</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Business Structure & Registration</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Corporate Structure</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li><strong>Entity Type:</strong> BC Corporation</li>
+                                    <li><strong>Registration:</strong> Active and compliant</li>
+                                    <li><strong>Business License:</strong> Local municipality license</li>
+                                    <li><strong>GST/HST:</strong> Registered (if revenue exceeds $30K)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Insurance Coverage</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li><strong>Professional Liability:</strong> $1M+ E&O coverage</li>
+                                    <li><strong>Cyber Liability:</strong> Data breach protection</li>
+                                    <li><strong>General Liability:</strong> $2M+ business operations</li>
+                                    <li><strong>Equipment:</strong> Business equipment coverage</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Intellectual Property</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li><strong>Trademark:</strong> "Kaizen Strategic AI" protection</li>
+                                    <li><strong>Copyright:</strong> Methodologies and frameworks</li>
+                                    <li><strong>Trade Secrets:</strong> Proprietary methods documented</li>
+                                    <li><strong>Client IP:</strong> Clear ownership clauses</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Master Contract Template</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">Learning Contract</h3>
+                            <div class="card-content">
+                                <p><strong>Purpose:</strong> Pre-launch strategy and case study building</p>
+                                <p><strong>Duration:</strong> 1-2 weeks</p>
+                                <p><strong>Investment:</strong> $1K-$2K</p>
+                                <p><strong>Deliverables:</strong> Process analysis, AI opportunities, demo</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Full Service Contract</h3>
+                            <div class="card-content">
+                                <p><strong>Purpose:</strong> Complete AI strategy and implementation</p>
+                                <p><strong>Duration:</strong> 4-8 weeks</p>
+                                <p><strong>Investment:</strong> $6K-$20K</p>
+                                <p><strong>Deliverables:</strong> Strategy, implementation, training</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Retainer Contract</h3>
+                            <div class="card-content">
+                                <p><strong>Purpose:</strong> Ongoing AI optimization and support</p>
+                                <p><strong>Duration:</strong> Monthly/Quarterly</p>
+                                <p><strong>Investment:</strong> $1.5K-$5K/month</p>
+                                <p><strong>Services:</strong> Monitoring, support, strategic planning</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Hourly Consulting</h3>
+                            <div class="card-content">
+                                <p><strong>Purpose:</strong> Flexible AI consulting services</p>
+                                <p><strong>Duration:</strong> As needed</p>
+                                <p><strong>Rate:</strong> $150-$250/hour</p>
+                                <p><strong>Services:</strong> Strategic planning, implementation support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">AI-Specific Compliance</h3>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3 class="card-title">AI Governance</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li><strong>Ethics Framework:</strong> Internal AI ethics and governance</li>
+                                    <li><strong>Bias Assessment:</strong> Procedures for identifying and mitigating bias</li>
+                                    <li><strong>Transparency:</strong> Documentation of AI decision-making</li>
+                                    <li><strong>Human Oversight:</strong> Human review of AI outputs</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Data Protection</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li><strong>PIPEDA Compliance:</strong> Personal information protection</li>
+                                    <li><strong>BC PIPA Compliance:</strong> Provincial privacy act compliance</li>
+                                    <li><strong>Data Retention:</strong> Policies for storage and deletion</li>
+                                    <li><strong>Breach Response:</strong> Incident response procedures</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Third-Party AI Tools</h3>
+                            <div class="card-content">
+                                <ul>
+                                    <li><strong>Vendor Compliance:</strong> Compliance with AI tool terms</li>
+                                    <li><strong>Data Processing:</strong> Clear data handling agreements</li>
+                                    <li><strong>Privacy Policies:</strong> Understanding of tool privacy policies</li>
+                                    <li><strong>Risk Assessment:</strong> Evaluation of vendor risks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

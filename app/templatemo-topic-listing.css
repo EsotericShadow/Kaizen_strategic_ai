@@ -524,47 +524,30 @@ strong {
   overflow: hidden; /* Contain decorative elements */
 }
 
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    url('/images/brand/asset_warped_line_badge.webp');
-  background-size: 
-    1000px auto;
-  background-position: 
-    calc(50% - 64px) calc(50% - 64px);
-  background-repeat: no-repeat;
-  opacity: 0.3; /* Subtle decorative elements */
-  pointer-events: none;
-  z-index: 1;
-}
+/* Hero badge now handled by AnimatedHero component */
 
-/* Responsive sizing for warped line badge - keep it large on all screens */
+/* Responsive sizing for animated hero badge */
 @media screen and (max-width: 1200px) {
-  .hero-section::before {
-    background-size: 900px auto;
-}
+  .hero-badge-animated {
+    width: 900px !important;
+  }
 }
 
 @media screen and (max-width: 991px) {
-  .hero-section::before {
-    background-size: 800px auto;
-}
+  .hero-badge-animated {
+    width: 800px !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .hero-section::before {
-    background-size: 700px auto;
-}
+  .hero-badge-animated {
+    width: 700px !important;
+  }
 }
 
 @media screen and (max-width: 576px) {
-  .hero-section::before {
-    background-size: 600px auto;
+  .hero-badge-animated {
+    width: 600px !important;
   }
 }
 

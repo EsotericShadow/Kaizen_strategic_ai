@@ -1,0 +1,27 @@
+What We Did NOT Include in This Review Package
+===============================================
+
+We deliberately kept this folder simple with ONLY the 3 files you need.
+
+We DID NOT include:
+- All the strategic planning documents
+- Development working files
+- Publication packaging files
+- Archived materials
+- Internal notes and decisions
+
+IF YOU WANT MORE DETAIL:
+
+Everything else is in the parent folder structure:
+- 08_Resources/NC_AI_Standards/Development/
+- 08_Resources/NC_AI_Standards/Planning/
+- 08_Resources/NC_AI_Standards/Publication/
+- 08_Resources/ISO_42001/
+
+But for this review, we only need your feedback on:
+1. Is it ISO 42001 compliant? ✅
+2. Any errors? ❌
+3. Would you endorse it? 💼
+
+That's it!
+
