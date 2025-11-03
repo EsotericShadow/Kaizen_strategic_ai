@@ -623,6 +623,18 @@ strong {
   margin-top: 1.5rem;
 }
 
+/* Move tagline and "Evolved from" text up on mobile */
+@media screen and (max-width: 768px) {
+  .hero-section h6 {
+    margin-top: 200px !important; /* Move up significantly on mobile */
+    top: 0 !important;
+  }
+
+  .hero-section .hero-evergreen-note {
+    margin-top: 0.5rem !important; /* Move "Evolved from" text closer to button */
+  }
+}
+
 /* Removed old hero overlay - now using SVG overlay and decorative elements */
 
 
