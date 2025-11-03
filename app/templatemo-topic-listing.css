@@ -624,12 +624,14 @@ strong {
 }
 
 /* Move tagline and "Evolved from" text up on mobile */
-@media screen and (max-width: 768px) {
-  /* Move main heading down on mobile using transform (doesn't affect layout flow) */
+@media screen and (max-width: 991px) {
+  /* Move main heading up on mobile/tablet using transform (doesn't affect layout flow) */
   .hero-section .hero-heading-wrapper {
-    transform: translateY(120px); /* Move heading down visually without affecting other elements */
+    transform: translateY(-80px); /* Move heading up on mobile/tablet */
   }
+}
 
+@media screen and (max-width: 768px) {
   /* Keep tagline, button, and evergreen note in their original positions - no changes needed */
   .hero-section h6 {
     margin-top: 200px !important; /* Keep original mobile position */
