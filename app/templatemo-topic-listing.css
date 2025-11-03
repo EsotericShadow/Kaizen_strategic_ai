@@ -627,7 +627,7 @@ strong {
 @media screen and (max-width: 991px) {
   /* Move main heading up on mobile/tablet using transform (doesn't affect layout flow) */
   .hero-section .hero-heading-wrapper {
-    transform: translateY(-20px); /* Move heading up slightly on mobile/tablet */
+    transform: translateY(0); /* Back to original position */
   }
 }
 
