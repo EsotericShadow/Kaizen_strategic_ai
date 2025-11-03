@@ -637,7 +637,7 @@ strong {
   }
 
   .hero-section .btn.custom-btn {
-    margin-top: 1.5rem !important; /* Keep original spacing */
+    margin-top: 0.5rem !important; /* Move button up on mobile */
   }
 
   .hero-section .hero-evergreen-note {
