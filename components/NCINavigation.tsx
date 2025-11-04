@@ -56,6 +56,16 @@ export default function NCINavigation() {
               </Link>
             </li>
             <li className="nav-item">
+              <Link className={`nav-link ${pathname?.includes('/founding-principles') ? 'active' : ''}`} href="/nci/founding-principles">
+                Principles
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link ${pathname?.includes('/consultation-whitepaper') ? 'active' : ''}`} href="/nci/consultation-whitepaper">
+                Consultation
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link className={`nav-link ${pathname?.includes('/standards') || pathname?.includes('/nc-ai-001') ? 'active' : ''}`} href="/nci/standards">
                 Standards
               </Link>

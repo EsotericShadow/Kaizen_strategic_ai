@@ -59,11 +59,41 @@ export default function NCIPage() {
               <div className="nci-content-box">
                 <h3 className="nci-heading">Geographic Scope</h3>
                 <p className="nci-text">
-                  Our focus is Northern British Columbia, specifically the region north of Prince George. We acknowledge the unique geographic and economic context of the North, including lower population density, resource-based economies, and the importance of Indigenous sovereignty and data rights.
+                  Our focus is Northern British Columbia, specifically Regional Districts 5 (Peace River), 6 (Bulkley-Nechako), 7 (Fraser-Fort George boundary), 8 (Fraser-Fort George), 9 (Kitimat-Stikine), 10 (Skeena-Queen Charlotte), and surrounding areas. We acknowledge the unique geographic and economic context of the North, including lower population density, resource-based economies, and the importance of Indigenous sovereignty and data rights.
                 </p>
                 <p className="nci-text-small mt-2">
-                  <strong>Primary Service Area:</strong> Terrace, Kitimat, Prince Rupert, Smithers<br />
-                  <strong>Indigenous Territories:</strong> Tsimshian, Gitxsan, Wet&apos;suwet&apos;en First Nations
+                  <strong>Primary Service Communities:</strong> Terrace, Kitimat, Prince Rupert, Smithers, and surrounding regional districts<br />
+                  <strong>Indigenous Territories:</strong> Tsimshian, Gitxsan, Wet&apos;suwet&apos;en First Nations and others in the region
+                </p>
+              </div>
+
+              <div className="nci-content-box nci-alert">
+                <h3 className="nci-heading">Founding Principles</h3>
+                <p className="nci-text">
+                  NCI is founded on five core principles:
+                </p>
+                <ol className="nci-list" style={{ listStyle: 'decimal', paddingLeft: '1.5rem' }}>
+                  <li><strong>Self-Determination Comes First:</strong> Northern communities have the right to articulate their own standards before external regulation arrives</li>
+                  <li><strong>Governance Begins Local:</strong> AI governance must start where impact will be felt: on the ground, with our own context</li>
+                  <li><strong>Indigenous Nations are Equal Pillars:</strong> Indigenous governments are sovereigns, not stakeholders—equal partners in standards creation</li>
+                  <li><strong>Northern BC Culture is a Valid Context:</strong> The North is a distinct cultural region worthy of its own frameworks</li>
+                  <li><strong>The North Must Not Wait for Permission:</strong> We begin architecting standards now, interfacing with international systems on our terms</li>
+                </ol>
+                <p className="nci-text-small mt-2">
+                  <Link href="/nci/founding-principles">Read the complete Founding Principles Declaration</Link>
+                </p>
+              </div>
+
+              <div className="nci-content-box">
+                <h3 className="nci-heading">Consultation Whitepaper</h3>
+                <p className="nci-text">
+                  Before developing standards, we&apos;re consulting with stakeholders to understand needs, build consensus, and establish principles. Our consultation whitepaper, &ldquo;Why Does Northern BC Need Its Own AI Governance Lens?&rdquo; presents the foundational case for regional standards.
+                </p>
+                <p className="nci-text">
+                  <strong>This is the first public output from NCI—consultation before standards.</strong> We invite feedback from Indigenous governments, municipalities, businesses, and community organizations.
+                </p>
+                <p className="nci-text-small mt-2">
+                  <Link href="/nci/consultation-whitepaper">Read the Consultation Whitepaper</Link>
                 </p>
               </div>
 
@@ -200,20 +230,17 @@ export default function NCIPage() {
                 </p>
               </div>
 
-              <div className="nci-content-box">
-                <h3 className="nci-heading">Relationship to Kaizen Strategic AI</h3>
+              <div className="nci-content-box" style={{ borderTop: '1px solid var(--nci-border)', paddingTop: '2rem', marginTop: '1rem' }}>
+                <h3 className="nci-heading">Organizational Independence</h3>
                 <p className="nci-text">
-                  The Northern Cascadia Institute was initiated by Kaizen Strategic AI, a Terrace-based digital strategy consultancy. While Kaizen Strategic AI operates separately as a for-profit business providing AI integration and digital strategy services, <strong>NCI operates independently</strong> as a standards-setting organization focused on regional AI governance.
+                  The Northern Cascadia Institute of AI Governance is an <strong>independent nonprofit organization</strong> currently in the process of incorporation as a BC Nonprofit Society. NCI operates with complete independence in governance, decision-making, and standards development.
                 </p>
                 <p className="nci-text">
-                  <strong>Key Points:</strong>
+                  NCI maintains separate governance, finances, and decision-making from any commercial entity. Our standards are developed through transparent public consultation and multi-stakeholder participation.
                 </p>
-                <ul className="nci-list">
-                  <li>NCI maintains separate governance, finances, and decision-making</li>
-                  <li>Kaizen Strategic AI may provide administrative support and resources</li>
-                  <li>NCI&apos;s public interest activities demonstrate Kaizen Strategic AI&apos;s commitment to responsible AI governance</li>
-                  <li>Clear separation: NCI = public interest standards; Kaizen = commercial consulting services</li>
-                </ul>
+                <p className="nci-text-small mt-2" style={{ fontStyle: 'italic' }}>
+                  <strong>Note:</strong> Kaizen Strategic AI is one of the early contributors to NCI&apos;s formation, but NCI operates independently as a standards-setting organization. For commercial AI consulting services, visit <Link href="/">Kaizen Strategic AI</Link>.
+                </p>
               </div>
 
               <div className="nci-content-box">
